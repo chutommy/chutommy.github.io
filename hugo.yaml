@@ -65,11 +65,11 @@ params:
     imageUrl: site/profile.png
     imageWidth: 260
     imageHeight: 260
-    buttons:
-      - name: About
-        url: about
-      - name: Articles
-        url: posts
+#    buttons:
+#      - name: About
+#        url: about
+#      - name: Posts
+#        url: posts
 
   socialIcons:
     - name: linkedin
@@ -88,7 +88,7 @@ menu:
     - name: About
       url: about
       weight: 9
-    - name: Posts
+    - name: Blog posts
       url: posts
       weight: 10
     - name: Archive
