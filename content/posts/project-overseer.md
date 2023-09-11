@@ -5,6 +5,7 @@ date: "2019-04-11T16:22:02+02:00"
 
 hideMeta: false
 showPostNavLinks: false
+showReadingTime: false
 
 showToc: true
 tocOpen: false
