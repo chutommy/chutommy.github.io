@@ -21,16 +21,15 @@ params:
   title: Tommy Chu
   description: "Tommy Chu's Academic Website"
   keywords: [ blog, portfolio, academic ]
-  author: Tommy Chu
   dateFormat: "January 2, 2006"
   defaultTheme: light
   disableThemeToggle: true
 
-  showReadingTime: false
+  showReadingTime: true
   showWordCount: false
   showShareButtons: false
   showCodeCopyButtons: false
-  showBreadCrumbs: true
+  showBreadCrumbs: false
   showPostNavLinks: false
   showFullTextInRSS: false
   howRssButtonInSectionTermList: false
@@ -71,8 +70,6 @@ params:
         url: about
       - name: Articles
         url: posts
-      - name: Portfolio
-        url: projects
 
   socialIcons:
     - name: linkedin
@@ -86,11 +83,6 @@ params:
     - name: cv
       url: ""
 
-  editPost:
-    URL: "https://github.com/chutommy/chutommy.github.io/blob/main"
-    Text: Suggest Changes # edit text
-    appendFilePath: true # to append file path to Edit link
-
 menu:
   main:
     - name: About
@@ -99,9 +91,6 @@ menu:
     - name: Posts
       url: posts
       weight: 10
-    - name: Projects
-      url: projects
-      weight: 20
     - name: Archive
       url: archives
       weight: 30

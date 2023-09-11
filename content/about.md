@@ -6,7 +6,7 @@ url: "/about"
 showBreadCrumbs: false
 ---
 
-{{< figure src="/about/profile.jpg" height=300 width=300 align="left">}}
+{{< figure src="/about/profile.jpg" height=300 width=300 align="left" >}}
 
 I’m Tommy, an Undergraduate Student at the [Czech Technical University](https://cvut.cz/en), Prague at the [Faculty of Information Technology](https://fit.cvut.cz/en).
 
