@@ -67,8 +67,12 @@ params:
     imageWidth: 260
     imageHeight: 260
     buttons:
-      - name: Posts
+      - name: About
+        url: about
+      - name: Articles
         url: posts
+      - name: Portfolio
+        url: projects
 
   socialIcons:
     - name: linkedin
@@ -89,6 +93,9 @@ params:
 
 menu:
   main:
+    - name: About
+      url: about
+      weight: 9
     - name: Posts
       url: posts
       weight: 10
