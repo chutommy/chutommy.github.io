@@ -19,7 +19,7 @@ minify:
 params:
   env: production
   title: Tommy Chu
-  description: Tommy Chu's Academic Website"
+  description: "Tommy Chu's Academic Website"
   keywords: [ blog, portfolio, academic ]
   author: Tommy Chu
   dateFormat: "January 2, 2006"
