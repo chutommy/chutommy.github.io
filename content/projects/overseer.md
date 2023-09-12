@@ -18,7 +18,9 @@ cover:
 
 The Overseer is a year-long project undertaken in honor of [George Orwell](https://en.wikipedia.org/wiki/George_Orwell) and his mission to warn humanity about the dangers of surveillance. In his book [1984](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), he laid the groudwork for omnipresent government surveillance and mass global-scope manipulation. The Overseer project aims to convey the message through an art work featuring a disturbing surveillance camera mounted on a robotic arm.
 
-{{< figure src="/projects/overseer/1984-orwell.png" caption="source: bookanalysis.com/1984/ingsoc" >}}
+{{< figure src="/projects/overseer/project/processed/06.png" caption="Conceptual design drafts for the enclosure" >}}
+
+{{< figure src="/projects/overseer/project/processed/09.png" >}}
 
 ## Introduction
 
@@ -27,6 +29,8 @@ The Overseer is a year-long project undertaken in honor of [George Orwell](https
 > You live in a world where you've grown accustomed to our constant presence. But don't bother trying to evade us; it's futile. We are omnipresent, watching you closely. In truth, we are powerless slaves to the algorithms and tools others employ. If you find this unsettling, well, tough luck -- no one sought your opinion. There's no hiding from us, and we won't cease our vigilant gaze.
 >
 > Yours faithfully, The Overseer
+
+{{< figure src="/projects/overseer/1984-orwell.png" caption="source: bookanalysis.com/1984/ingsoc" >}}
 
 It's astonishing how much of a digital footprint each of us leaves in today's world. Computers have seamlessly integrated into our daily routines, whether we're using online services, precise navigation tools, quick payment options, or electronic wearables.
 
@@ -85,8 +89,6 @@ As the project evolved, I incorporated additional features, such as target toler
 ### CPU compatibility
 
 I originally planned to run everything on a [Raspberry Pi Zero W](https://www.raspberrypi.com/products/raspberry-pi-zero-w/), which I had initially intended to fit inside the same enclosure as the camera. However, due to the decision to employ the relatively precise [OpenCV4](https://opencv.org/) technology (v4.3.0) for facial recognition, which is only compatible with ARMv7+ processors, I ultimately opted for the [Raspberry Pi 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) model with an ARMv8 CPU.
-
-{{< figure src="/projects/overseer/project/processed/06.png" caption="Conceptual design drafts for an additional enclosure" >}}
 
 This choice, however, came with a trade-off as it was considerably larger. Consequently, I had to add another enclosure to the rear of the assembly. This adjustment also led me to abandon the concept of mounting the camera as an articulated arm on a board that could be hung on the wall.
 
