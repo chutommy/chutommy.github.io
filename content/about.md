@@ -4,6 +4,7 @@ layout: "baseof"
 url: "/about"
 
 showBreadCrumbs: false
+hideMeta: true
 ---
 
 {{< figure src="/about/profile.jpg" height=300 width=300 align="left" >}}
