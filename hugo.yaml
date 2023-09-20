@@ -86,8 +86,10 @@ menu:
     - name: Projects
       url: projects
       weight: 20
+#    - name: Achievements
+#      url: achievements
+#      weight: 30
 
-    - weight: 200
     - name: Search
       url: search
       weight: 210
