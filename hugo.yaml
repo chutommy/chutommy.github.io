@@ -90,9 +90,9 @@ menu:
 #      url: achievements
 #      weight: 30
 
-    - name: Search
-      url: search
-      weight: 210
+#    - name: Search
+#      url: search
+#      weight: 210
 
 outputs:
   home:
