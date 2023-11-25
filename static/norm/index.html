@@ -3,119 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Normal Distribution and CDF Plot</title>
+  <title>Normal Distribution</title>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.1.0/math.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
   <div id="normalCurve" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-
+  
   <script>
-    // Function to calculate the normal distribution at a given x
     function normalDistribution(x, mean, stdDev) {
       const factor = 1 / (stdDev * Math.sqrt(2 * Math.PI));
       return factor * Math.exp(-0.5 * Math.pow((x - mean) / stdDev, 2));
     }
 
-    // Function to calculate the cumulative distribution at a given x
     function cumulativeDistribution(x, mean, stdDev) {
       return 0.5 * (1 + math.erf((x - mean) / (stdDev * Math.sqrt(2))));
     }
 
-    // Function to generate data for the normal distribution and cumulative distribution functions
-    function generateNormalCurveData(mean, stdDev) {
+    function generateNormalCurveData(mean, stdDev, from, to) {
       const data = [];
       const cdfData = [];
-
-      // Generate data points for x in the range of -4 to 4 with a step of 0.01
-      for (let x = -4; x <= 4; x += 0.01) {
+      for (let x = from; x <= to; x += 0.01) {
         data.push({ x, y: normalDistribution(x, mean, stdDev) });
         cdfData.push({ x, y: cumulativeDistribution(x, mean, stdDev) });
       }
-
       return { normalCurve: data, cdf: cdfData };
     }
 
-    // Set mean and standard deviation for the normal distribution
-    const mean = 0, stdDev = 1;
+    const mean = 0, stdDev = 1, from = -4, to = 4;
+    const { normalCurve, cdf } = generateNormalCurveData(mean, stdDev, from, to);
 
-    // Generate data for the normal distribution and cumulative distribution
-    const { normalCurve, cdf } = generateNormalCurveData(mean, stdDev);
-
-    // Layout configuration for the plot
+    const titlesize = 24, labelsize = 20, ticksize = 18, legendsize = 20, linewidth = 3.6;
     const layout = {
-      title: { text: 'Normal Distribution and Cumulative Distribution Function', font: { size: 24 } },
-      xaxis: { title: 'X Value', tickfont: { size: 18 }, range: [-4, 4], fixedrange: true },
-      yaxis: { title: 'Probability Density / Cumulative Probability', tickfont: { size: 18 }, fixedrange: true },
-      hovermode: 'compare',
-      legend: { font: { size: 20 } },
+      title: { text: 'Normal Distribution: PDF vs CDF', font: { size: titlesize } },
+      xaxis: { title: { text: 'X', font: { size: labelsize } }, tickfont: { size: ticksize }, range: [from, to], fixedrange: true },
+      yaxis: { title: { text: 'Probability Density / Cumulative Probability', font: { size: labelsize } }, tickfont: { size: ticksize }, fixedrange: true },
+      legend: { font: { size: legendsize } },
       showlegend: true,
-      plot_bgcolor: 'rgba(0,0,0,0)',
-      paper_bgcolor: 'rgba(0,0,0,0)',
       font: { color: '#333' },
       height: 800,
       width: 1200,
-      modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d', 'toggleSpikelines', 'hoverClosestCartesian', 'hoverCompareCartesian'],
-      modeBarDefaultButtons: ['toggleHover', 'zoom2d', 'pan2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d', 'resetScale2d'],
+      hovermode: 'compare',
     };
 
-    // Configuration for the PDF (Probability Density Function) trace
     const tracePDF = {
       x: normalCurve.map(point => point.x),
       y: normalCurve.map(point => point.y),
-      type: 'scatter',
       mode: 'lines',
       name: 'PDF',
-      line: { width: 3, color: '#1f77b4' }, // Thicker line for better visibility
+      line: { width: linewidth, color: '#1f77b4' },
     };
 
-    // Configuration for the CDF (Cumulative Distribution Function) trace
     const traceCDF = {
       x: cdf.map(point => point.x),
       y: cdf.map(point => point.y),
-      type: 'scatter',
       mode: 'lines',
       name: 'CDF',
-      line: { width: 3, color: '#ff7f0e' }, // Thicker line for better visibility
+      line: { width: linewidth, color: '#ff7f0e' },
     };
 
-    // Create the plot with the configured data and layout
     Plotly.newPlot('normalCurve', [tracePDF, traceCDF], layout);
-
-    // Hover value display configuration
-    const hoverValue = document.createElement('div');
-    hoverValue.style = 'position:absolute;padding:10px;border:1px solid #ccc;display:none;font-size:24px;';
-    document.body.appendChild(hoverValue);
-
-    // Event listener for hover interactions
-    document.getElementById('normalCurve').on('plotly_relayout', function(event) {
-      if (event && event['xaxis.range[0]']) {
-        const xValue = event['xaxis.range[0]'];
-        const pdfValue = normalDistribution(xValue, mean, stdDev).toFixed(4);
-        const cdfValue = cumulativeDistribution(xValue, mean, stdDev).toFixed(4);
-        hoverValue.innerHTML = `X: ${xValue.toFixed(2)}, PDF: ${pdfValue}, CDF: ${cdfValue}`;
-        hoverValue.style.left = event.event.clientX + 'px';
-        hoverValue.style.top = event.event.clientY + 'px';
-        hoverValue.style.display = 'block';
-      }
-    });
-
-    // Event listener for unhover interactions
-    document.getElementById('normalCurve').on('plotly_unhover', function() {
-      hoverValue.style.display = 'none';
-    });
-
-    // Event listener for updating hover value while hovering
-    document.getElementById('normalCurve').on('plotly_afterplot', function() {
-      document.getElementById('normalCurve').onmousemove = function(event) {
-        const xValue = Plotly.p2l(event, 0).x;
-        const pdfValue = normalDistribution(xValue, mean, stdDev).toFixed(4);
-        const cdfValue = cumulativeDistribution(xValue, mean, stdDev).toFixed(4);
-        hoverValue.innerHTML = `X: ${xValue.toFixed(2)}, PDF: ${pdfValue}, CDF: ${cdfValue}`;
-        hoverValue.style.left = event.clientX + 'px';
-        hoverValue.style.top = event.clientY + 'px';
-      };
-    });
   </script>
 </body>
 </html>
