@@ -61,7 +61,7 @@ params:
   profileMode:
     enabled: true
     title: Tommy Chu
-    subtitle: Computer Scientist
+    subtitle: Computer Science Student
     imageUrl: site/profile.png
     imageWidth: 260
     imageHeight: 260
@@ -80,9 +80,9 @@ params:
 
 menu:
   main:
-    - name: About
-      url: about
-      weight: 10
+#    - name: About
+#      url: about
+#      weight: 10
     - name: Projects
       url: projects
       weight: 20
