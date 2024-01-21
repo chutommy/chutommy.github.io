@@ -22,3 +22,4 @@ hideMeta: true
 ### Data Analysis
 * [Project 1](/host/viz/01/index.html)
 * [Project 2](/host/viz/02/index.html)
+* [Project 3](/host/viz/03/index.html)
