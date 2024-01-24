@@ -1,0 +1,105 @@
+\babel@toc {czech}{}\relax 
+\contentsline {section}{\numberline {1}Rozhodovací stromy}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Algoritmus ID3}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Kritéria pro větvení}{3}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Míra neuspořádanosti}{3}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Entropie}{3}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Gini index}{4}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Informační zisk}{4}{subsubsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.3}Použití pro klasifikaci a regresi}{4}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Klasifikace}{4}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Regrese}{4}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Hyperparametry}{5}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Shrnutí}{5}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Metoda nejbližších sousedů kNN}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Hyperparametry}{6}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Počet sousedů k}{6}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Vzdálenost (metrika)}{6}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Váha sousedů}{7}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Použití pro klasifikaci a regresi}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Normalizace dat}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Prokletí dimenzionality}{7}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Lineární regrese}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Model}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Predikce}{9}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Metoda nejmenších čtverců}{9}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Maticový zápis trénovací množiny}{10}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Minimalizace RSS}{10}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Geometrická interpretace}{10}{subsubsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.4}Regularita versus lineární nezávislost sloupců matice X}{11}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Problém kolinearity}{11}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Důsledky kolinearity}{12}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Řešení problému kolinearity}{12}{subsubsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.6}Shrnutí}{12}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Hřebenová regrese}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Regularizovaný reziduální součet čtverců}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Minimalizace regularizovaného RSS}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Modely bázových funkcí}{14}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Bázové funkce}{14}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Volba bázových funkcí}{14}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Model}{15}{subsubsection.4.3.3}%
+\contentsline {section}{\numberline {5}Výběr příznaků}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Základní metody výběru příznaků}{16}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Filtrační metody}{16}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Obalové metody}{16}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Vestavěné metody}{17}{subsubsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.2}Lasso}{17}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Statistické vlastnosti modelů}{19}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Očekávaná chyba modelu}{19}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Rozklad očekávané chyby modelu}{19}{subsubsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.2}Bias-variance tradeoff}{19}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Nestrannost odhadu v metodou nejmenších čtverců}{20}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Logistická regrese}{21}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Použití pro binární klasifikaci}{21}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Sigmoida}{21}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Fungování modelu logistické regrese}{21}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.2}Hranice rozhodnutí}{21}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Logistická regrese jako MLE odhad}{22}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Myšlenka MLE odhadu}{22}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Sestavení optimalizační úlohy pro trénování}{22}{subsubsection.7.3.2}%
+\contentsline {section}{\numberline {8}Ensemble metody}{24}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Bagging (bootstrap aggregating)}{24}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Náhodné lesy}{24}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Pestrost stromů}{24}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Predikce}{24}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Shrnutí}{24}{subsubsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.3}Boosting}{25}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Vážené hodnoty u rozhodovacího stromu}{25}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}AdaBoost}{25}{subsubsection.8.3.2}%
+\contentsline {paragraph}{Konstrukce stromů}{25}{section*.2}%
+\contentsline {paragraph}{O regularizaci}{26}{section*.3}%
+\contentsline {paragraph}{Predikce}{26}{section*.4}%
+\contentsline {section}{\numberline {9}Evaluace modelů}{27}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Ztrátová funkce}{27}{subsection.9.1}%
+\contentsline {paragraph}{Regrese}{27}{section*.5}%
+\contentsline {paragraph}{Klasifikace}{27}{section*.6}%
+\contentsline {subsubsection}{\numberline {9.1.1}Trénovací chyba}{27}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}Testovací chyba}{28}{subsubsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.2}Evaluační scénáře}{28}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Hold-out}{28}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}k-fold cross-validation}{29}{subsubsection.9.2.2}%
+\contentsline {paragraph}{Cross-validation error}{29}{section*.7}%
+\contentsline {paragraph}{Finální model}{29}{section*.8}%
+\contentsline {subsection}{\numberline {9.3}Evaluace regrese}{30}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Evaluace klasifikace}{30}{subsection.9.4}%
+\contentsline {paragraph}{Matice záměn}{30}{section*.9}%
+\contentsline {subsubsection}{\numberline {9.4.1}Evaluační míry binární klasifikace}{31}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.2}ROC a AUC}{31}{subsubsection.9.4.2}%
+\contentsline {paragraph}{ROC}{32}{section*.10}%
+\contentsline {paragraph}{AUC}{32}{section*.11}%
+\contentsline {section}{\numberline {10}Nesupervizované učení}{33}{section.10}%
+\contentsline {paragraph}{Z pohledu teorie pravděpodobnosti}{33}{section*.12}%
+\contentsline {section}{\numberline {11}Shluková analýza}{34}{section.11}%
+\contentsline {paragraph}{Vzdálenost}{34}{section*.13}%
+\contentsline {paragraph}{Formalizace úlohy shlukování}{34}{section*.14}%
+\contentsline {subsection}{\numberline {11.1}Hierarchické shlukování}{34}{subsection.11.1}%
+\contentsline {subsubsection}{\numberline {11.1.1}Měření vzdáleností shluků}{34}{subsubsection.11.1.1}%
+\contentsline {subsubsection}{\numberline {11.1.2}Dendrogram}{35}{subsubsection.11.1.2}%
+\contentsline {paragraph}{Shrnuťí}{36}{section*.15}%
+\contentsline {subsection}{\numberline {11.2}Algoritmus k-means}{36}{subsection.11.2}%
+\contentsline {subsubsection}{\numberline {11.2.1}Shlukování jako optimalizační úloha}{36}{subsubsection.11.2.1}%
+\contentsline {paragraph}{Souvislost účelové funkce s geometrickým středem}{36}{section*.16}%
+\contentsline {subsubsection}{\numberline {11.2.2}k-means}{36}{subsubsection.11.2.2}%
+\contentsline {paragraph}{Volba počtu shluků}{37}{section*.17}%
+\contentsline {subsection}{\numberline {11.3}Silhouette skóre}{37}{subsection.11.3}%
+\contentsline {paragraph}{Evaluace pomocí Silhouette skóre}{38}{section*.18}%

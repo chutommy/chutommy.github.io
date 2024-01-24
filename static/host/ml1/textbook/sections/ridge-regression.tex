@@ -1,0 +1,94 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\section{Hřebenová regrese} \label{sec:ridge}
+
+Hřebenová nebo také $L_2$ regularizace, stejně jako lineární regrese, předpokládá lineární model $Y = \we^T \x + \varepsilon$. Nicméně navíc řeší problém kolinearity tím, že penalizuje vysoké hodnoty koeficientů $\we$ vyjma interceptu.
+
+\subsection{Regularizovaný reziduální součet čtverců}
+
+Hřebenová regrese tedy minimalizuje následují reziduální součet čtverců
+\[ \RSS_\lambda(\we) = \| \Y - \X \we \|^2 + \lambda \sum_{i=1}^{p} w_i^2 \]
+s regulačním členem $\lambda \ge 0$.
+
+Pro $\lambda = 0$ dostáváme klasickou neregularizovanou lineární regresi. Intercept se nepenalizuje, protože ten jen zajišťuje $\E \varepsilon = 0$.
+
+\subsection{Minimalizace regularizovaného RSS}
+
+Pro účely hřebenové regrese zavedeme
+\[\mathbf{}
+    \I' =
+    \begin{pmatrix}
+        0      & 0      & \cdots & 0      \\
+        0      & 1      & \cdots & 0      \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & \cdots & 1
+    \end{pmatrix}
+    \in \R^{p+1, p+1}
+\]
+
+Regularizovaný $\RSS_\lambda$ lze vyjádřit Jako
+\begin{align*}
+    \RSS_\lambda(\we)
+     & = \| \Y - \X \we \|^2 + \lambda \sum_{i=1}^{p} w_i^2  \\
+     & = \| \Y - \X \we \|^2 + \lambda \we^T \I' \we
+\end{align*}
+
+Nalezneme parciální derivaci a následně gradient
+\begin{align*}
+    \pdv{\RSS(\we)}{w_j}
+     & = \sum_{i=1}^{N} 2 (Y_i - \we^T \x_i) (-x_{i, j}) + 2 \lambda w_j         \\
+    \nabla \RSS(\we)
+     & = \sum_{i=1}^{N} 2 (Y_i - \we^T \x_i) (-\x_i) + 2 \lambda \I' \we \\
+     & = -2 \X^T (\Y - \X\we) + 2 \lambda \I' \we
+\end{align*}
+
+A položením rovno nule obdržíme ekvivalent normální rovnice
+
+\begin{align*}
+    \X^T\Y - \X^T\X\we - \lambda \I' \we & = 0 \\
+    \X^T\Y - (\X^T\X + \lambda \I') \we  & = 0
+\end{align*}
+
+Hessova matice zde vychází
+\[
+    \textbf{H}_{\RSS_\lambda}(\we) = 2(\X^T\X - \lambda \I')
+\]
+
+Pro libovolné $\bm{s} \in \R^{p+1}, \bm{s} \ne \bm{0}, \lambda > 0$ platí
+\begin{align*}
+    \bm{s}^T(\X^T\X + \lambda \I')\bm{s}
+     & = \bm{s}^T \X^T\X \bm{s} + \lambda \bm{s}^T \I' \bm{s} \\
+     & = \| \X \bm{s} \|^2 + \lambda \sum_{i=1}^{p} s_i^2 > 0,
+\end{align*}
+
+Matice $\X^T\X + \lambda \I'$ je tedy vždy pozitivně definitní a regulární a řešení normální rovnice pro regulované $\RSS_\lambda$ je jednoznačné.
+\[\wh_\lambda = (\X^T\X + \lambda \I')^{-1} \X^T\Y\]
+Predikce modelu je $\hat{Y} = \wh_\lambda^T\x$.
+
+\subsection{Modely bázových funkcí}
+
+Model lineární regrese, případně hřebenové regrese, modeluje pouze lineární funkci. Množinu příznaků lze však rozšířit jejími transformovanými variantami.
+
+\subsubsection{Bázové funkce}
+
+Pro $M \in \mathbb{N}$ zvolme $M$ funkcí $\varphi_1, \ldots, \varphi_M$ z $\R^{p}$ do $\R$ reprezentující transformace. Těmto funkcím říkáme bázové funkce.
+
+Modely bázových funkcí se od předchozích lineárních regresních modelů liší pouze tím, že místo původního $\x$ pracuje s $\bm{\varphi}(\x)  \coloneqq (1, \varphi_1(\x), \ldots, \varphi_M(\x))^T$
+
+\subsubsection{Volba bázových funkcí}
+
+Časté volby bázových funkcí jsou
+\begin{itemize}
+    \item $\varphi(\x) = x_i$ -- původní příznaky
+    \item $\varphi(\x) = x_i^2, x_i x_j$ -- mocniny, součiny (polynomiální regrese)
+    \item $\varphi(\x) = \log(x_i), \sqrt{x_i}, \sin(x_i)$ -- nelineární transformace
+    \item $\varphi(\x) = \mathds{1}_{A}$ -- indikátory (dělení prostoru)
+\end{itemize}
+
+\subsubsection{Model}
+Model bázové funkce rozšiřuje možnosti hřebenové regrese a může jej dělat velmi mocným a sofistikovaným nástrojem.
+\[\x \longrightarrow \bm{\varphi(\x)} \colon \quad Y = \we_\lambda^T\bm{\varphi(\x)} + \varepsilon\]
+
+Postup s transformovaným vektorem $\x' \coloneqq \bm{\varphi(\x)}$ je dál zcela analogický jako u hřebenové regrese a predikce modelu je $\hat{Y} = \wh_\lambda^T\bm{\varphi(\x)}$.
+
+\end{document}

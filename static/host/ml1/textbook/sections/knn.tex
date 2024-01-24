@@ -1,0 +1,98 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\section{Metoda nejbližších sousedů kNN}
+
+Metoda nejbližších sousedů je model supervizovaného učení, které predikuje na základě nejbližších záznamů ve vícedimenzionálním prostoru trénovacích dat.
+
+\subsection{Hyperparametry}
+
+\subsubsection{Počet sousedů k}
+
+Číslo $k$ určuje počet nejbližších sousedů, ze kterých model počítá predikci. Vyšší hodnota zabraňuje přeučení.
+
+\subsubsection{Vzdálenost (metrika)} \label{sec:metrika}
+
+Metrika na množině $\calX$ je funkce $d: \calX \times \calX \longrightarrow [0, +\infty)$ taková, že pro každé $x, y, z \in \calX$ platí
+\begin{enumerate}
+    \item pozitivní definitnost: $d(x, y) \ge 0 \land d(x, y) = 0$ právě tehdy když $x = y$
+    \item symetrie: $d(x,y) = d(y,x)$
+    \item trojúhelníková nerovnost: $d(x, y) + d(y, z) \ge d(x, z)$
+\end{enumerate}
+
+Častými metrikami jsou Minkowského k-metriky ($L_k$ vzdálenosti)
+\[
+    \|\x - \y\|_k = d_k(\x, \y)_k = \sqrt[k]{\sum_{i=0}^{p-1} |x_i - y_i|^k}
+\]
+
+Speciálně pro $k=1$ dostáváme Manhattanskou vzdálenost
+\[
+    d_1(\x, \y) = \sum_{i=0}^{p-1} |x_i - y_i|
+\]
+
+Pro $k=2$ Eukleidovskou vzdálenost
+\[
+    d_2(\x, \y) = \sqrt{\sum_{i=0}^{p-1} (x_i - y_i)^2}
+\]
+
+A pro $k=+\infty$ Chebyshevovu vzdálenost
+\[
+    d_{\infty}(\x, \y) = \max_i |x_i - y_i|
+\]
+
+Příklad dalších často používaných metrik je Levenshteinova editační vzdálenost dvou řetězců nebo kosinová vzdálenost dvou vektorů podle úhlu (pouze pozitivně semidefinitní), které svírají
+\[
+    d(\x, \y) = \frac{\x \cdot \y}{\|\x\|_2 \|\y\|_2}
+\]
+
+Existují i sofistikovanější metriky jako je například Jaccardova pro množiny nebo Haversinova pro vzdálenost dvou bodů na sféře.
+
+\subsubsection{Váha sousedů}
+
+U regresních úloh může být váha sousedů uniformní (každý z $k$ sousedů má stejný vliv na výsledek predikce)
+\[
+    \hat{y} = \frac{1}{k} \sum_{i=0}^{k-1} y_k
+\]
+nebo může být vážený podle vzdálenosti (bližší soused je vlivnější)
+\begin{equation*}
+    \begin{aligned}[t]
+        \hat{y} = \frac{\sum_{i=0}^{k-1} w_i y_k}{\sum_{i=0}^{k-1} w_i}
+    \end{aligned}
+    \quad \text{kde} \quad
+    \begin{aligned}[t]
+        w_i = \frac{1}{d(\x_i, \bm{n}_i)}
+    \end{aligned}
+\end{equation*}
+
+\subsection{Použití pro klasifikaci a regresi}
+
+Pro trénovací data $\X \in \R^{N, p}$ s vysvětlovanou proměnou $Y \in \R^N$ predikujeme hodnotu vysvětlované proměnné pro datový bod $\x \in \R^p$ hlasováním (klasifikace), případně průměrem (regrese), $k$ nejbližších sousedů.
+
+Model kNN má tak velmi levné ``trénování", kdy pouze ukládá trénovací množinu do paměti. Predikce je ovšem výpočetně náročnější.
+
+\subsection{Normalizace dat}
+
+Kvůli rozdílným rozsahům příznaků mají rozsahy hodnot v původních datech nerovnoměrný příspěvek na vzdálenost. Tento problém se dá řešit normalizací do intervalu $[0,1]$, případně $[-1, 1]$, nebo standardizací.
+
+\begin{equation*}
+    \text{normalizace: }
+    \begin{aligned}[t]
+        x_i \leftarrow \frac{x_i - \text{min}_x}{\text{max}_x - \text{min}_x}
+    \end{aligned}
+    \quad\quad
+    \text{standardizace: }
+    \begin{aligned}[t]
+        x_i \leftarrow \frac{x_i - \bar{x}}{\sqrt{s_x^2}}
+    \end{aligned}
+\end{equation*}
+
+Normalizace není vždy přímočará. Někdy se vyplatí normalizovat jen některé příznaky, nebo do různě velkých rozsahů, čímž se přiřadí umělá váha.
+
+\subsection{Prokletí dimenzionality}
+
+Metodě kNN neprospívá vysoká dimenzionalita. S vyšší dimenzionalitou rostou vzdálenosti všech bodů a může se stát, že v případě řídkých dat je okolí, co do vzdálenosti, prázdné nebo nereprezentativní (rozdíl vzdálenosti vzdálených a blízkých bodů se zmenšuje).
+
+Nominální data se předzpracovávají pomocí OHE, což kvůli těmto problémům není ideální. Problém představuje také přítomnost méně relevantní příznaků, protože se model chová ke všem rozměrům stejně.
+
+Pro rostoucí počet dimenzí významně roste potřebný počet prvků pro zaplnění prostoru a reprezentativní predikce.
+
+\end{document}

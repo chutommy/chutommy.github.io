@@ -1,0 +1,90 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\section{Ensemble metody}
+
+Ensemble metody spočívají v konstrukci velkého množství jednoduchých modelů, jejichž predikce se zkombinují do finálního rozhodnutí.
+
+\subsection{Bagging (bootstrap aggregating)}
+
+Jednou z metod konstrukce slabých podmodelů (weak learners), je trénování nad náhodným výběrem trénovací množiny. Tím se zajistí rozdílnost podmodelů, jejich pestrost a variabilita. Tato metoda se nazývá bootstrap.
+
+\subsection{Náhodné lesy}
+
+Velmi silným a mocným reprezentantem bagging metody je náhodný les, který agreguje stromy. Tyto stromy jsou zpravidla malé hloubky. Datasety vzniklé bootstrapem způsobí vyšší pestrost stromů, které jsou sami o sobě velmi citlivé a u kterých se malá změna dat často projevuje velmi rozdílnými výsledky. Stromům s rostoucí hloubkou klesá bias, ale roste variance. Kombinací stromů model v jistém smyslu rozptyl krotí. Díky této stabilitě funguje náhodný les v praxi velmi dobře.
+
+\subsubsection{Pestrost stromů}
+
+Dalším velmi důležitým krokem v konstrukci náhodného lesa je náhodný výběr příznaků při každém dělení listu během konstrukce jednotlivých stromů. Algoritmus náhodně volí nějakou podmnožinu příznaků (o velikosti např. $\sqrt{\cdotp}$, $\log$) mezi kterými hledá ten nelepší split. Silné prediktory budou  stále hodně zastoupené, nicméně v případě, že se ve výběru nevyskytnou, mají šanci výslednou konstrukci ovlivnit i slabších prediktory (které se mohou nyní vyskytnout i v kořeni nebo jinde ve vyšších hladinách).
+
+\subsubsection{Predikce}
+
+Náhodný les kombinuje výsledky stromů v případě klasifikace majoritním hlasováním a v případě regrese průměrem.
+
+\subsubsection{Shrnutí}
+
+Rozhodovací stromy jsou díky kolektivnímu rozhodování velmi robustní, díky průměrování odolné vůči přeučení (s rostoucím počtem průměrovaných hodnot klesá rozptyl a roste spolehlivost). Naopak ztrácí interpretovatelnost a trénují se znatelně déle (konstrukce stromů lze však provádět paralelně).
+
+U náhodného lesa ladíme jako hyperparametry četnost podmodelů, maximální hloubku jednotlivých stromů, počet/poměr náhodně vybraných příznaků při větvení.
+
+\subsection{Boosting}
+
+\subsubsection{Vážené hodnoty u rozhodovacího stromu}
+
+Princip vážených dat u rozhodovacího stromu je následovný: Každému prvku $\x_i$ v trénovací množině přiřadíme nezápornou váhu $w(\x_i)$ tak, že \[\sum_{i=1}^{N} w(\x_i) = 1\]
+
+Při učení se tak význam vah u výpočtu informačního zisku trochu mění.
+\[
+    IG(\D) = H(\D) - t_0 H(\D_0) - t_1 H(\D_1),
+\]
+
+kde $\D_0, \D_1$ jsou příslušné podmnožiny $\D$, jsou nyní koeficienty definované jako
+\begin{equation*}
+    t_0 = \frac{\sum_{\x \in \D_0} w(\x)}{\sum_{\x \in \D} w(\x)}
+    \quad \text{a} \quad
+    t_1 = \frac{\sum_{\x \in \D_1} w(\x)}{\sum_{\x \in \D} w(\x)}.
+\end{equation*}
+
+Takhle naučený strom klade větší důraz na to, aby správně predikoval datové body s vyšší váhou.
+
+\subsubsection{AdaBoost}
+
+AdaBoost podobně jako bagging konstruuje velké množství stromů, jejichž výsledky pro finální predikci kombinuje. Na rozdíl od náhodného lesa však spolu vybudované stromy souvisí. Stromy se konstruují sekvenčně, přičemž každý strom v posloupnosti se soustředí na ty datové body, ve kterých předchozí strom chyboval (zvýší jim váhu).
+
+\paragraph{Konstrukce stromů}
+
+V algoritmu se vyskytuje hodnota $\lambda$ (learning rate), která v případě, že je menší než jedna trénování zpomaluje a zabraňuje přeučení. Pro $\lambda \ge 1$ je konstrukce významných stromů rychlejší, ale zároveň volatilní (zběsile řeší ``aktuální'' problém, kterým rychleji vznikají špatně klasifikované hodnoty, na které se nesoustředil).
+
+\begin{algorithm}[H]
+    \renewcommand{\thealgorithm}{}
+    \caption{AdaBoost}
+    \begin{algorithmic}[1]
+        \Require
+        \Statex Trénovací data $\D$.
+        \Statex Learning rate $\lambda \ge 0$.
+        \Statex
+        \State Přiřaď všem datovým bodům váhu $w_i = \frac{1}{N}$.
+        \State Polož $m = 1$ (indexuje stromy v posloupnosti).
+        \While{$m \le \texttt{n\_estimators}$}
+        \State Natrénuj strom $T^{(m)}$ s váhami $w_i$.
+        \State Spočítej součet vah $e^{(m)}$ špatně klasifikovaných hodnot v $T^{(m)}$.
+        \State Pokud je $e^{(m)} = 0$, skonči.
+        \State Polož \[\alpha^{(m)} = \lambda \log\frac{1 - e^{(m)}}{e^{(m)}}.\]
+        \State Špatně klasifikovaným prvkům v $T^{(m)}$ přiřaď nové váhy
+        \[w_i \leftarrow w_i \exp(\alpha^{(m)}).\]
+        \State Váhy znormalizuj, aby součet byl 1, a inkrementuj $m$.
+        \EndWhile
+        \State \Return $T^{(1)}, T^{(2)}, \ldots, T^{(m)}$
+    \end{algorithmic}
+\end{algorithm}
+
+\paragraph{O regularizaci}
+
+Regularizaci většinou doprovází nějaký tradeoff. V případě AdaBoostu se jedná o pomalejší trénování (je potřeba víc stromů), nebo v případě hřebenové regrese způsobuje vychýlení odhadu $\wh$.
+
+\paragraph{Predikce}
+
+Model každému stromu $T^{(m)}$ přiřadí váhu $\alpha^{(m)}$ a při klasifikaci spočte $W_1$ součet vah stromů, které predikují 1, a $W_0$ součet vah stromů, které predikují 0. Ve finále predikuje tu hodnotu, která má mezi všemi stromy vyšší celkovou váhu.
+
+Existuje i verze AdaBoostu pro multiclass klasifikaci: AdaBoost-SAMME, a pro regresi: AdaBoost.R2. AdaBoost nemusí nutně používat stromy. Umí používat jakýkoliv model, který umí správně pracovat s váženými datovými body.
+
+\end{document}

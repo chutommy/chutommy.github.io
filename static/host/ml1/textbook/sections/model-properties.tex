@@ -1,0 +1,74 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\section{Statistické vlastnosti modelů}
+
+V modelu pro trénovací množinu $\Y = \X\we + \bm{\varepsilon}$ je $\bm{\varepsilon}$ náhodný vektor, z čehož plyne, že $\Y$ je náhodný vektor, a tedy i $\wh_\lambda$ je náhodný vektor.
+
+\subsection{Očekávaná chyba modelu}
+
+Protože je odhad $\wh_\lambda$ náhodný vektor, můžeme pomocí kvadratické ztrátové funkce zkoumat očekávanou chybu predikce $Y = \we^T\x + \varepsilon$ pomocí $\hat{Y} = \wh_\lambda^T \x$.
+
+\subsubsection{Rozklad očekávané chyby modelu}
+
+Předpokládáme-li, nezávislost trénovací množiny s testovací množinou, tedy i nezávislost $Y$ a $\hat{Y}$, pak lze očekávanou chybu spočíst jako
+\[
+    \E L(Y, \hat{Y}) = \E (Y - \hat{Y})^2 = \ldots
+    = \textrm{var}\,Y + \E (\hat{Y} - \E Y)^2
+    = \sigma^2 + \MSE(\hat{Y})
+\]
+
+První člen odpovídá Bayesovské chybě, která je dána náhodností modelu. Druhý člen značíme $\MSE(\hat{Y})$ (mean squared error), který se dá dále dělit na dva členy:
+\[
+    \MSE(\hat{Y}) = \E (\hat{Y} - \E Y)^2 = \ldots
+    = (\E\hat{Y} - \E Y)^2 + \E(\hat{Y} - \E\hat{Y})^2
+    = (\text{bias}\,\hat{Y})^2 + \text{var}\,\hat{Y}
+\]
+kde $\text{bias}\,\hat{Y}$ značí vychýlení odhadu $\hat{Y}$ a $\text{var}\,\hat{Y}$ jeho rozptyl. Finální dekompozice očekávané chyby odhadu je
+\[
+    \E L(Y, \hat{Y}) = \sigma^2 + (\text{bias}\,\hat{Y})^2 + \text{var}\,\hat{Y}
+\]
+a skládá se z neodstranitelné Bayesovské chyby. kvadrátu vychýlení odhadu a rozptylu odhadu.
+
+Tento rozklad je pouze teoretický, v praxi máme jen celkové MSE, které se snažíme minimalizovat.
+
+\subsection{Bias-variance tradeoff}
+
+Zpravidla s komplexitou modelu klesá bias (vychýlení), ale roste variance (rozptyl) -- model se přeučuje.
+
+U hřebenové regrese s rostoucím regulačním koeficientem klesá rozptyl (regularizace je silnější, odhad $\wh$ je stabilnější), ale zároveň roste vychýlení (koeficienty více ``dusíme'' a jsou systematicky podhodnocované). Takovému chování v závislosti na hyperparametrech modelu se nazývá bias-variance tradeoff.
+
+V praxi při ladění hřebenové regresi hledáme optimální $\lambda$, při které je MSE na validační množině $(Y'_i, \x'_i)$ nejmenší. MSE odhadujeme
+\[\MSE = \frac{1}{n} \sum_{i=1}^{n} (Y'_i - \wh_\lambda^T\x'_i)^2\]
+
+Při použití hřebenové regrese je rozumné příznaky standardizovat, aby byly rozsahově podobné a penalizované stejně. Příznaky $X_i$ nahradíme
+\[
+    X_i \leftarrow \frac{X_i - \bar{X}_i}{\sqrt{s_{X_i}^2}},
+    \quad \text{kde} \quad
+    \bar{X}_i = \tfrac{1}{N} \sum_{i=1}^{N} (X_i)_j
+    \quad \text{a} \quad
+    s_{X_i}^2 = \tfrac{1}{N-1} \sum_{i=1}^{N} (X_i - \bar{X}_i)^2
+\]
+
+\subsection{Nestrannost odhadu v metodou nejmenších čtverců}
+
+Protože je $\wh_{\text{OLS}}$ bodový odhad (statistika) můžeme zkoumat zda je nestranný. Předpokládáme-li $\E \bm{\varepsilon} = 0$, pak z linearity střední hodnoty platí
+\[
+    \E \Y = \E(\X\we + \bm{\varepsilon})
+    = \E\X\we + \E\bm{\varepsilon}
+    = \X\we
+\]
+Dále platí
+\begin{align*}
+    \E\wh_{\text{OLS}}
+     & = \E[(\X^T\X)^{-1}\X^T\Y]      \\
+     & = (\X^T\X)^{-1}\X^T\E[\Y]      \\
+     & = (\X^T\X)^{-1}\X^T\X\we = \we
+\end{align*}
+Z čehož plyne
+\[
+    \E \hat{Y} = \E(\wh_{\text{OLS}}^T\x) = \E(\wh_{\text{OLS}})^T\x = \we^T\x = \E Y
+\]
+$\hat{Y}$ je tedy nestranným bodovým odhadem $EY$. To znamená, že pro neregularizovanou lineární regresi platí, že je vychýlení nulové:
+\[\text{bias}\,\hat{Y} = \E\hat{Y} - \E Y = 0.\]
+
+\end{document}

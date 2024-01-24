@@ -8,7 +8,7 @@ hideMeta: true
 ---
 
 ### Machine Learning
-* [Personal Textbook](/host/ml1/main.pdf)
+* [Personal Textbook](/host/ml1/textbook/main.pdf)
 * [Project 1](/host/ml1/01/index.html)
 * [Project 2](/host/ml1/02/index.html)
 

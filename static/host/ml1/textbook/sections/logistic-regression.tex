@@ -1,0 +1,91 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\section{Logistická regrese}
+
+Logistická regrese predikuje pravděpodobnost jednotlivých hodnot vysvětlované proměnné. Pro binární klasifikaci $Y \in \{0, 1\}$, na kterou se omezíme, tedy vrací pravděpodobnost 1, $P(Y = 1) \in [0, 1]$.
+
+\subsection{Použití pro binární klasifikaci}
+
+\subsubsection{Sigmoida}
+
+V modelu použijeme lineární výraz $\wt\x = w_0 + w_1 x_1 + \ldots + w_p x_p$, který má však obor hodnot na celém $\R$. Tento výraz proto dosadíme do funkce, která je ostře rostoucí a má obor hodnot podmnožinu $[0, 1]$. V logistické regresi volíme sigmoidu
+\[f(x) = \frac{e^x}{1+e^x} = \frac{1}{1+e^{-x}}\]
+Jedná se o speciální případ logistické funkce
+\[f(x) = \frac{L}{1 + e^{-k(x-x_0)}},\]
+se supremem $L=1$, koeficientem růstu $k=1$ a středem $x_0 = 0$.
+
+Sigmoida má jako definiční obor celé $\R$ a obor hodnot $(0, 1)$. Na celém definičním oboru je ostře rostoucí, limita pro $x \rightarrow -\infty$ je 0 a pro $x \rightarrow +\infty$ je 1. Také platí, že střed má v bodě 0: $f(0) = \frac{1}{2}$.
+
+\subsubsection{Fungování modelu logistické regrese}
+
+Binární klasifikace vysvětlované proměnné $Y \in \{0,1\}$ s $p$ příznaky $X_1, \ldots, X_p$ logistická regrese provede predikcí pravděpodobnosti
+\begin{equation*}
+    \text{P} (Y=1 \mid \x, \we ) = \frac{e^{\wtx}}{1 + e^{\wtx}},
+\end{equation*}
+kde $\x = (1, x_1, \ldots, x_p)$ je vektor hodnot příznaků a $\we = (w_0, \ldots, w_p)$ je vektor koeficientů. Model zvolí 1 když $\text{P} (Y=1 \mid \x, \we ) > 0.5$, jinak predikuje 0.
+
+\subsection{Hranice rozhodnutí}
+
+Hranice rozhodnutí je dána rovnicí
+\begin{equation*}
+    \text{P} (Y=1 \mid \x, \we ) = 0.5
+    \quad \Leftrightarrow \quad
+    \wtx = 0
+    \quad \Leftrightarrow \quad
+    w_0 + w_1 x_1 + \ldots + w_p x_p = 0
+\end{equation*}
+To odpovídá nadrovině v prostoru $\R^p$. Hranici tedy tvoří lineární varieta dimenze $p-1$.
+
+\subsection{Logistická regrese jako MLE odhad}
+
+Vzhledem k tomu, že u logistické regrese predikujeme pravděpodobnost hodnot proměnné $Y$, nelze vyloženě měřit chybu takových odhadů a následně je minimalizovat jako u lineární regrese. Proto parametry $\we$ odhadujeme MLE (maximum likelihood estimation) metodou maximální věrohodností.
+
+\subsubsection{Myšlenka MLE odhadu}
+
+Pro parametry $\we = (w_0, w_1, \ldots, w_p)$ jsou pravděpodobnosti následující
+\begin{align*}
+    p_{1}(\x; \we) & = \text{P} (Y=1 \mid \x, \we ) = \frac{e^{\wtx}}{1 + e^{\wtx}} \\
+    p_{0}(\x; \we) & = \text{P} (Y=0 \mid \x, \we ) = \frac{1}{1 + e^{\wtx}}
+\end{align*}
+
+MLE je takový odhad parametrů, pro které je daná realizace náhodného výběru nejpravděpodobnější (má největší věrohodnost). Metoda maximální věrohodnosti formálně odhaduje hodnotu $\wh$  parametru $\we$, která maximalizuje $L(\we; \X)$ na trénovacích datech $\X = (\x_1, \ldots, \x_N)$, kde $\x_i = (1, x_{i, 1}, \ldots, x_{i, p})$ jsou jednotlivé naměřené hodnoty:
+\begin{equation*}
+    \wh \in \left\{\argmax_{\we \in \R^{p+1}} L(\we; \X)\right\},
+    \quad \text{kde }
+    L(\we; \X) = \prod_{i=1}^{N} p_{Y_i}(\x_i; \we)
+\end{equation*}
+
+\subsubsection{Sestavení optimalizační úlohy pro trénování}
+
+Pro tuto funkci se snažíme nalézt maximum (nemusí existovat). Před zderivováním se však často vyplatí věrohodnost zlogaritmovat (log-likelihood), který je na $(0, +\infty)$ prostý a ostře rostoucí a tudíž má maximum ve stejném bodě.
+\begin{align*}
+     & \ell(\we; \X) = \ln L(\we; \X)
+    = \sum_{i=1}^{N} \ln p_{Y_i}(\x_i; \we)                                                \\
+     & = \sum_{i=1}^{N} Y_i \ln p_{1}(\x_i; \we) + (1 - Y_i) \ln p_{0}(\x_i; \we) = \ldots \\
+     & = \sum_{i=1}^{N} \left(Y_i \wt\x_i - \ln(1+e^{\wt\x_i})\right)
+\end{align*}
+
+Parciální derivace a gradient vychází
+\begin{equation*}
+    \pdv{\ell(\we; \X)}{w_j}
+    = \sum_{i=1}^{N} \left(Y_i \x_{i,j} - \frac{e^{\wt\x_i} \cdot \x_{i,j}}{1+e^{\wt\x_i}}\right) = \sum_{i=1}^{N} \x_{i,j} \left(Y_i - p_1(\x; \we)\right)
+\end{equation*}
+\begin{equation*}
+    \nabla \ell(\we; \X)
+    = \X^T\left(\Y - \bm{P}\right), \quad
+    \text{kde } \bm{P} = (p_1(\x_1; \we), \ldots, p_1(\x_N; \we))^T
+\end{equation*}
+
+Náš odhad leží v bodě, kde věrohodnost nabývá maxima, což nalezneme položením gradientu nule:
+\begin{equation*}
+    \nabla \ell(\wh; \X)
+    = \X^T\left(\Y - \bm{\hat{P}}\right)
+    = \bm{0}
+\end{equation*}
+Zde neexistuje explicitní řešení a je třeba jej hledat numerickými aproximativními metodami (např. vícerozměrnou Newtonovou metodou lze ukázat, že řešení konverguje k lok. maximu, které je v případě logistické regrese současně globálním maximem).
+
+Výpočet koeficientů logistické regrese je výpočetně náročný. Bez explicitního vzorce je výsledek jen aproximace a je možné, že počítač nic nevrátí (nepodaří se mu nalézt dostatečně dobrá aproximace).
+
+Funkce $\ell(\we; \X)$ také žádné maximum mít nemusí. V takovém případě se numerickou metodou pouze snažíme hledat přibližné řešení $\X^T\left(\Y - \bm{\hat{P}}\right) = \bm{0}$.
+
+\end{document}
