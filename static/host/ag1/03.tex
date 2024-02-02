@@ -1,0 +1,73 @@
+\documentclass{article}
+\title{AG1 - Domácí zábava III}
+\author{Tommy Chu}
+\date{}
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{subfiles}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{physics}
+\usepackage{dsfont}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{pgfplots}
+\usepackage{lmodern}
+\usepackage{import}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{mystyle}
+\usepackage{soul}
+
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+\definecolor{grey}{rgb}{.93,.93,.93}
+
+\begin{document}
+\maketitle
+
+\section{Zadání}
+
+Nechť $G = (V, E)$ je neorientovaný graf s $c$ komponentami souvislosti. Ukažte, že $G$ obsahuje alespoň $m - n + c$ kružnic.
+
+\subsection*{Lemmata}
+
+\paragraph*{Věta 1.} Přidáním nové hrany do souvislého grafu vznikne alespoň jedna nová kružnice.
+
+\textit{Důkaz.} Protože je graf souvislý, mezi libovolnými dvěma vrcholy existuje cesta. Přidáním nové hrany vznikne mezi koncovými vrcholy nová cesta (délky 1). Slepením nové cesty a existující cesty, vznikne kružnice, která v původním grafu bez přidané hrany nebyla.
+\qed
+
+\paragraph*{Věta 2.} Souvislý graf má alespoň $m - n + 1$ kružnic.
+
+\textit{Důkaz.}
+Je-li graf strom, platí $m = n - 1$, a graf má triviálně alespoň $0 = m - n + 1$ kružnic. V opačném případě má graf díky souvislosti kostru z $n-1$ hran a jedná se o rozšíření této kostry o~$m - (n - 1) = m - n + 1$ hran. Nicméně v důsledku \textit{Věty 1} má strom rozšířený o $m - n + 1$ hran alespoň $m - n + 1$ kružnic.
+\qed
+
+\subsection*{Řešení}
+
+Nechť $G = (V, E)$ je neorientovaný graf s $c$ komponentami souvislosti: $A_1, A_2, \cdots, A_c$. Označme $n_i = |V(A_i)|$ a $m_i = |E(A_i)|$. Protože jsou komponenty souvislé, z \textit{Věty 2} platí:
+\[
+    \text{pro $\forall i \in \{1, 2, ..., c\}$} \colon A_i \text{ má alespoň } m_i - n_i + 1 \text{ kružnic}.
+\]
+
+Z toho plyne, že počet kružnic grafu $G$ je alespoň
+\begin{align*}
+    \sum_{i=1}^{c} \Bigl( m_i - n_i + 1 \Bigr) = \sum_{i=1}^{c} m_i - \sum_{i=1}^{c} n_i + \sum_{i=1}^{c} 1 = m - n + c.
+\end{align*}
+\qed
+
+\end{document}
