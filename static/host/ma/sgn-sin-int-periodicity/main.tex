@@ -1,0 +1,121 @@
+\documentclass[a4paper]{article}
+\title{MA2: $(\sgn \sin n)^{\infty}_{n=1}$}
+\author{Tommy Chu}
+\date{}
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{subfiles}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{physics}
+\usepackage{dsfont}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{pgfplots}
+\usepackage{lmodern}
+\usepackage{import}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{paralist}
+\usepackage{verbatim}
+\usepackage{titling}
+
+\graphicspath{ {./images/} }
+
+\microtypesetup{
+    protrusion=true,
+    activate={true,nocompatibility},
+    final,
+    tracking=true,
+    kerning=true,
+    spacing=true,
+    factor=1100,
+}
+
+\relpenalty   = 10000
+\binoppenalty = 10000
+
+\setlength{\droptitle}{-5em}
+
+\newtheorem{theorem}{Tvrzení}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclareMathOperator{\sgn}{sgn}
+
+\begin{document}
+\maketitle
+\section*{Zadání}
+
+Zjistěte, jestli je posloupnost $(\sgn \sin n)^{\infty}_{n=1}$ periodická.
+
+Periodickou posloupností se myslí taková posloupnost $(a_n)^{\infty}_{n=1}$, pro které existuje perioda $T \in \mathbb{N}$ taková, že pro všechna $n \in \mathbb{N}$ platí $a_n = a_{n + T}$.
+
+Funkce $\sgn : \mathbb{R} \rightarrow \{-1, 0, 1\}$ zobrazuje záporná čísla na -1, nulu na 0 a kladná čísla na 1.
+
+\subsection*{Pomocná tvrzení}
+
+\begin{theorem}
+    Pokud má posloupnost $(\sgn \sin n)^{\infty}_{n=1}$ periodu $T \in \mathbb{N}$, pak ${T \geq 7 > 2\pi}$.
+\end{theorem}
+\begin{proof}
+    $T \geq 6$  plyne přímo z výčtu prvních prvků: \[1, 1, 1, (-1), (-1), (-1), 1, \cdots\]
+    $T = 6$ lze vyvrátit protipříkladem: ${\sgn \sin(1 + 5 \cdot T) = -1 \neq 1 = \sgn \sin(1)}$.
+\end{proof}
+
+\begin{theorem}
+    Nechť je $a \in \mathbb{N}$. Neexistuje $k \in \mathbb{Z}$, pro které platí $a = k\pi$.
+\end{theorem}
+\begin{proof}
+    Platí triviálně pro $k = 0$. Pro $k \neq 0$ by muselo platit $\pi = \frac{a}{k} \in \mathbb{Q}$, což je ve sporu s tím, že $\pi$ je iracionální číslo.
+\end{proof}
+
+\subsection*{Řešení}
+
+Posloupnost $(\sgn \sin n)^{\infty}_{n=1}$ není periodická.
+
+\begin{proof}
+    Pro spor předpokládejme, že posloupost $(a_n)^{\infty}_{n=1}$, kde $a_n = \sgn \sin n$, je periodická s~periodou $T \in \mathbb{N}$.
+
+    Zřejmě platí $\sin 1 > 0$, tedy $a_1 = 1$. Podle předpokladu dále platí $a_1 = a_{1 + T}$. Pro $a_{1 + T}$ se stejným znaménkem proto existuje $z \in \mathbb{Z}$ takové, že ${2\pi z < 1 + T < 2\pi z + \pi}$ (slovy: $1 + T$ leží v intervalu, na kterém je sinus kladný). Z Tvrzení 2 jsou zde nutně ostré nerovnosti a z Tvrzení 1 navíc platí $z \neq 0$ (z pohledu vnitřní funkce $\sin$ jsme v jiné periodě). Po odečtení $2\pi z$ obdržíme $0 < 1 + T - 2\pi z < \pi$. Označme tuto fázi $\varphi_1 \coloneqq 1 + T - 2\pi z$.
+
+    Nyní může nastat jeden ze dvou případů: \begin{inparaenum}
+        \item $\varphi_1 = 1$,
+        nebo
+        \item $\varphi_1 \neq 1$
+    \end{inparaenum}. Oba případy vyvrátíme.
+
+    1. Z rovnosti $\varphi_1 = 1$ dostáváme spor:
+    ${\varphi_1 = 1
+                \implies 1 + T - 2\pi z = 1
+                \implies \pi = \frac{T + 1}{2z} \in \mathbb{Q}}$
+
+    2. Označme $\Delta \varphi \coloneqq \varphi_1 - 1$. Protože $\varphi_1 \in (0, \pi)$ a zároveň ${\varphi_1 \neq 1}$, tak ${\Delta \varphi \in (-1, 0) \cup (0, \pi - 1)}$. Uvažujme pro teď případ $0 < \Delta \varphi < \pi - 1$. Ukážeme, že po maximálně $\ceil{\frac{\pi}{\Delta \varphi}}$ periodách se změní posloupnosti $(\sin n)^{\infty}_{n=1}$ znaménko, tedy vyvrátíme existenci periody T posloupnosti $(\sgn \sin n)^{\infty}_{n=1}$.
+
+    Pár prvních prvků vybrané posloupnosti $(\sgn \sin (1 + n T))^{\infty}_{n = 1}$ mohou mít shodné znaménko, nicméně každou periodou se fáze ve vnitřní funkci sinus posouvá o $\Delta \varphi$. V konečném počtu $m$ `period' nastane $1 + m \cdot \Delta \varphi > \pi$ a znaménko skočí do záporných hodnot. Protože $\Delta \varphi < \pi$, nehrozí přeskočení intervalu délky $\pi$ z kladných hodnot sinu opět do kladných.
+
+    V případě $\Delta \varphi \in (-1, 0)$ by byl důkaz analogický. Fáze by se zmenšovala až do doby, kdy po $m$ `periodách' dosáhne $1 + m \cdot \Delta \varphi < 0$ a změní se znaménko.
+
+    \textbf{Závěr:} S předpokladem, že posloupnost $(\sgn \sin n)^{\infty}_{n=1}$ je periodická, jsme došli ke sporu. Posloupnost žádnou periodu nemá.
+
+    \begin{figure}[H]
+        \centering
+        \makebox[\linewidth]{\includegraphics[width=16cm,height=3cm]{4}}
+    \end{figure}
+\end{proof}
+
+\end{document}
