@@ -18,16 +18,17 @@ hideMeta: true
 * [Project 2](/host/ml1/02/index.html)
 
 #### Probability and Statistics
-* [Normal Distribution](/host/norm/index.html)
+* [Natural Selection (Humerus Analysis)](/host/pst/analysis.html)
+* [Normal Distribution](/host/pst/norm.html)
 
 #### Mathematical Analysis
-* [Sine in Z - set analysis](/host/ma/sin-everywhere-dense/main.pdf)
-* [Sign of sine - sequence periodicity](/host/ma/sgn-sin-int-periodicity/main.pdf)
-* [Uncountable stationary points](/host/ma/inf-saddles/main.pdf)
+* [Sine in Integers (Dense Set Analysis)](/host/ma/sin-everywhere-dense/main.pdf)
+* [Sign of Sine (Sequence Periodicity)](/host/ma/sgn-sin-int-periodicity/main.pdf)
+* [Uncountable Stationary Points](/host/ma/inf-saddles/main.pdf)
 
 #### Algorithms and Graphs
-* [Exercise 01](/host/ag1/01.pdf)
-* [Exercise 02](/host/ag1/02.pdf)
-* [Exercise 03](/host/ag1/03.pdf)
-* [Exercise 04](/host/ag1/04.pdf)
-* [Exercise 05](/host/ag1/05.pdf)
+* [Exercise 1](/host/ag1/01.pdf)
+* [Exercise 2](/host/ag1/02.pdf)
+* [Exercise 3](/host/ag1/03.pdf)
+* [Exercise 4](/host/ag1/04.pdf)
+* [Exercise 5](/host/ag1/05.pdf)
