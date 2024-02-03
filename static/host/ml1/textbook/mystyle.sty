@@ -15,16 +15,16 @@
 }
 
 \setcounter{tocdepth}{2}
-% \setcounter{section}{-1}
+\setcounter{section}{-1}
 
 \relpenalty   = 10000
 \binoppenalty = 10000
 
 \geometry{
-    left=18mm,
-    right=18mm,
-    top=20mm,
-    bottom=20mm,
+    left=25mm,
+    right=25mm,
+    top=30mm,
+    bottom=30mm,
 }
 
 \pagestyle{fancy}
@@ -32,11 +32,41 @@
 \fancyhead[R]{\footnotesize\leftmark}
 \renewcommand{\headrulewidth}{1pt}
 
-\author{Tommy Chu}
-\title{
-    Strojové učení
+\title{Strojové učení \\
+    \large Kurzy BI-ML1 / BI-ML2}
+
+
+\author{Tommy Chu \\
+    \href{mailto:chutommy@fit.cvut.cz}{chutommy@fit.cvut.cz}}
+\affil{
+    Fakulta informačních technologií, \\
+    České vysoké učení technické v Praze
 }
-\date{}
+
+\date{\today}
+
+\colorlet{myred}{red!80!black}
+\colorlet{myblue}{blue!80!black}
+\colorlet{mygreen}{green!60!black}
+\colorlet{myorange}{orange!70!red!60!black}
+\colorlet{mydarkred}{red!30!black}
+\colorlet{mydarkblue}{blue!40!black}
+\colorlet{mydarkgreen}{green!30!black}
+
+\tikzset{
+>=latex,
+node/.style={thick,circle,draw=myblue,minimum size=22,inner sep=0.5,outer sep=0.6},
+node in/.style={node,green!20!black,draw=mygreen!30!black,fill=mygreen!25},
+node hidden/.style={node,blue!20!black,draw=myblue!30!black,fill=myblue!20},
+node convol/.style={node,orange!20!black,draw=myorange!30!black,fill=myorange!20},
+node out/.style={node,red!20!black,draw=myred!30!black,fill=myred!20},
+connect/.style={thick,mydarkblue},
+connect arrow/.style={-{Latex[length=4,width=3.5]},thick,mydarkblue,shorten <=0.5,shorten >=1},
+node 1/.style={node in},
+node 2/.style={node hidden},
+node 3/.style={node out}
+}
+\def\nstyle{int(\lay<\Nnodlen?min(2,\lay):3)}
 
 \DeclareMathOperator{\E}{E}
 \DeclareMathOperator{\RSS}{RSS}
