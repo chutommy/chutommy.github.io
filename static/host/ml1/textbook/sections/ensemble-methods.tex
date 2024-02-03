@@ -1,5 +1,3 @@
-\documentclass[../main.tex]{subfiles}
-\begin{document}
 \section{Ensemble metody}
 
 Ensemble metody spočívají v konstrukci velkého množství jednoduchých modelů, jejichž predikce se zkombinují do finálního rozhodnutí.
@@ -86,5 +84,3 @@ Regularizaci většinou doprovází nějaký tradeoff. V případě AdaBoostu se
 Model každému stromu $T^{(m)}$ přiřadí váhu $\alpha^{(m)}$ a při klasifikaci spočte $W_1$ součet vah stromů, které predikují 1, a $W_0$ součet vah stromů, které predikují 0. Ve finále predikuje tu hodnotu, která má mezi všemi stromy vyšší celkovou váhu.
 
 Existuje i verze AdaBoostu pro multiclass klasifikaci: AdaBoost-SAMME, a pro regresi: AdaBoost.R2. AdaBoost nemusí nutně používat stromy. Umí používat jakýkoliv model, který umí správně pracovat s váženými datovými body.
-
-\end{document}
