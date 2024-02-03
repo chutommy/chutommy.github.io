@@ -16,11 +16,11 @@ Předpokládáme-li, nezávislost trénovací množiny s~testovací množinou, t
 \]
 
 První člen odpovídá Bayesovské chybě, která je dána náhodností modelu. Druhý člen značíme $\MSE(\hat{Y})$ (mean squared error), který se dá dále dělit na dva členy:
-\[
-    \MSE(\hat{Y}) = \E (\hat{Y} - \E Y)^2 = \ldots
-    = (\E\hat{Y} - \E Y)^2 + \E(\hat{Y} - \E\hat{Y})^2
-    = (\text{bias}\,\hat{Y})^2 + \text{var}\,\hat{Y}
-\]
+\begin{align*}
+    \MSE(\hat{Y}) & = \E (\hat{Y} - \E Y)^2 = \ldots =                 \\
+                  & = (\E\hat{Y} - \E Y)^2 + \E(\hat{Y} - \E\hat{Y})^2 \\
+                  & = (\text{bias}\,\hat{Y})^2 + \text{var}\,\hat{Y}
+\end{align*}
 kde $\text{bias}\,\hat{Y}$ značí vychýlení odhadu $\hat{Y}$ a $\text{var}\,\hat{Y}$ jeho rozptyl. Finální dekompozice očekávané chyby odhadu je
 \[
     \E L(Y, \hat{Y}) = \sigma^2 + (\text{bias}\,\hat{Y})^2 + \text{var}\,\hat{Y}
@@ -47,7 +47,7 @@ Při použití hřebenové regrese je rozumné příznaky standardizovat, aby by
     s_{X_i}^2 = \tfrac{1}{N-1} \sum_{i=1}^{N} (X_i - \bar{X}_i)^2
 \]
 
-\subsection{Nestrannost odhadu v~metodou nejmenších čtverců}
+\subsection{Nestrannost odhadu v~metodě nejmenších čtverců}
 
 Protože je $\wh_{\text{OLS}}$ bodový odhad (statistika) můžeme zkoumat zda je nestranný. Předpokládáme-li $\E \bm{\varepsilon} = 0$, pak z~linearity střední hodnoty platí
 \[
