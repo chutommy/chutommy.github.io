@@ -6,7 +6,7 @@ Hřebenová nebo také $L_2$ regularizace, stejně jako lineární regrese, pře
 
 Hřebenová regrese tedy minimalizuje následují reziduální součet čtverců
 \[ \RSS_\lambda(\we) = \| \Y - \X \we \|^2 + \lambda \sum_{i=1}^{p} w_i^2 \]
-s regulačním členem $\lambda \ge 0$.
+s~regulačním členem $\lambda \ge 0$.
 
 Pro $\lambda = 0$ dostáváme klasickou neregularizovanou lineární regresi. Intercept se nepenalizuje, protože ten jen zajišťuje $\E \varepsilon = 0$.
 
@@ -40,7 +40,7 @@ Nalezneme parciální derivaci a následně gradient
      & = -2 \X^T (\Y - \X\we) + 2 \lambda \I' \we
 \end{align*}
 
-A položením rovno nule obdržíme ekvivalent normální rovnice
+A~položením rovno nule obdržíme ekvivalent normální rovnice
 
 \begin{align*}
     \X^T\Y - \X^T\X\we - \lambda \I' \we & = 0 \\
@@ -69,9 +69,9 @@ Model lineární regrese, případně hřebenové regrese, modeluje pouze lineá
 
 \subsubsection{Bázové funkce}
 
-Pro $M \in \mathbb{N}$ zvolme $M$ funkcí $\varphi_1, \ldots, \varphi_M$ z $\R^{p}$ do $\R$ reprezentující transformace. Těmto funkcím říkáme bázové funkce.
+Pro $M \in \mathbb{N}$ zvolme $M$ funkcí $\varphi_1, \ldots, \varphi_M$ z~$\R^{p}$ do $\R$ reprezentující transformace. Těmto funkcím říkáme bázové funkce.
 
-Modely bázových funkcí se od předchozích lineárních regresních modelů liší pouze tím, že místo původního $\x$ pracuje s $\bm{\varphi}(\x)  \coloneqq (1, \varphi_1(\x), \ldots, \varphi_M(\x))^T$
+Modely bázových funkcí se od předchozích lineárních regresních modelů liší pouze tím, že místo původního $\x$ pracuje s~$\bm{\varphi}(\x)  \coloneqq (1, \varphi_1(\x), \ldots, \varphi_M(\x))^T$
 
 \subsubsection{Volba bázových funkcí}
 
@@ -87,4 +87,4 @@ Modely bázových funkcí se od předchozích lineárních regresních modelů l
 Model bázové funkce rozšiřuje možnosti hřebenové regrese a může jej dělat velmi mocným a sofistikovaným nástrojem.
 \[\x \longrightarrow \bm{\varphi(\x)} \colon \quad Y = \we_\lambda^T\bm{\varphi(\x)} + \varepsilon\]
 
-Postup s transformovaným vektorem $\x' \coloneqq \bm{\varphi(\x)}$ je dál zcela analogický jako u hřebenové regrese a predikce modelu je $\hat{Y} = \wh_\lambda^T\bm{\varphi(\x)}$.
+Postup s~transformovaným vektorem $\x' \coloneqq \bm{\varphi(\x)}$ je dál zcela analogický jako u~hřebenové regrese a predikce modelu je $\hat{Y} = \wh_\lambda^T\bm{\varphi(\x)}$.

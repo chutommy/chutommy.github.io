@@ -1,10 +1,10 @@
 \section{Nesupervizované učení}
 
-Nesupervizované učení se zabývá problematikou neoznačených dat. Cílem je tedy datům porozumět, případně odhalit nějakou vnitřní strukturu. To většinou znamená odhalit nějaké omezené oblasti v prostoru příznaků, ve kterých se data vyskytují častěji (data se zpravidla nevyskytují náhodně, často tvoří nějaké shluky). Bývají nějakým způsobem lokalizovaná (např. v nějakých méně dim. oblastech, apod.).
+Nesupervizované učení se zabývá problematikou neoznačených dat. Cílem je tedy datům porozumět, případně odhalit nějakou vnitřní strukturu. To většinou znamená odhalit nějaké omezené oblasti v~prostoru příznaků, ve kterých se data vyskytují častěji (data se zpravidla nevyskytují náhodně, často tvoří nějaké shluky). Bývají nějakým způsobem lokalizovaná (např. v~nějakých méně dim. oblastech, apod.).
 
-Obecným problémem je, že zpočátku typicky o datech nemáme žádnou informaci. Tu se snažíme různými metodami z dat extrahovat. Na rozdíl od nesupervizového učení zde není jasný postup, nebo přímočarý způsob, jak úspěšnost řešení vyhodnocovat.
+Obecným problémem je, že zpočátku typicky o~datech nemáme žádnou informaci. Tu se snažíme různými metodami z~dat extrahovat. Na rozdíl od nesupervizového učení zde není jasný postup, nebo přímočarý způsob, jak úspěšnost řešení vyhodnocovat.
 
-\paragraph{Z pohledu teorie pravděpodobnosti} Uvažujme realizaci náhodného vektoru $\X = (X_1, \ldots, X_p)^T$ v prostoru $\calX$, které je v případě binárních příznaků $\calX = \{0,1\}^p$ a v případě spojitých příznaků $\calX = \R^p$.
+\paragraph{Z~pohledu teorie pravděpodobnosti} Uvažujme realizaci náhodného vektoru $\X = (X_1, \ldots, X_p)^T$ v~prostoru $\calX$, které je v~případě binárních příznaků $\calX = \{0,1\}^p$ a v~případě spojitých příznaků $\calX = \R^p$.
 
 Porozuměním vnitřní struktuře znamená porozumění rozdělení $\X$ tak, že jsme schopni spolehlivě predikovat pravděpodobnost $\text{P}(\X \in O)$, kde $O$ je nějakou zajímavou podmnožinou $\calX$.
 

@@ -1,17 +1,17 @@
 \section{Lineární regrese}
 
-V modelu lineární regrese předpokládáme lineární závislost vysvětlované proměnné na hodnotách příznaků.
+V~modelu lineární regrese předpokládáme lineární závislost vysvětlované proměnné na hodnotách příznaků.
 
 \subsection{Model}
 
-Pro data s hodnotami příznaků $X_1, \ldots, X_p$ a hodnotou vysvětlované proměnné $Y$ předpokládáme lineární model
+Pro data s~hodnotami příznaků $X_1, \ldots, X_p$ a hodnotou vysvětlované proměnné $Y$ předpokládáme lineární model
 \begin{equation*}
     Y = w_0 + w_1 X_1 + \ldots + w_p X_p + \varepsilon
 \end{equation*}
 
 kde $w_i$ jsou neznámé koeficienty a $\varepsilon$ představuje chybu nebo nekonzistenci výsledné hodnoty $Y$, kterou model nezachycuje a pro kterou platí $\E \varepsilon = 0$.
 
-V bodě $(x_1, \ldots, x_p)^T$ tohoto modelu platí vztah \[ Y = w_0 + w_1 x_1 + \ldots + w_p x_p + \varepsilon = \we^T \x + \varepsilon \] kde zavádíme následující vektorovou notaci pro vstup $\x$ a vektor vah $\we$
+V~bodě $(x_1, \ldots, x_p)^T$ tohoto modelu platí vztah \[ Y = w_0 + w_1 x_1 + \ldots + w_p x_p + \varepsilon = \we^T \x + \varepsilon \] kde zavádíme následující vektorovou notaci pro vstup $\x$ a vektor vah $\we$
 \begin{align*}
     \x  & = (1, x_1, \ldots, x_p)^T   \\
     \we & = (w_0, w_1, \ldots, w_p)^T
@@ -19,12 +19,12 @@ V bodě $(x_1, \ldots, x_p)^T$ tohoto modelu platí vztah \[ Y = w_0 + w_1 x_1 +
 
 \subsection{Predikce}
 
-S odhadnutými váhami $\hat{\we}$ predikujeme vztahem
+S~odhadnutými váhami $\hat{\we}$ predikujeme vztahem
 \[\hat{Y} = \hat{\we}^T\x = \hat{w_0} + \hat{w_1} x_1 + \ldots + \hat{w_p} x_p\]
 
-Pro skutečnou hodnoty $Y = \we^T \x + \varepsilon$ platí z předpokladu $\E \varepsilon = 0$ \[\E Y = \E \we^T \x + \E \varepsilon = \we^T \x\]
+Pro skutečnou hodnoty $Y = \we^T \x + \varepsilon$ platí z~předpokladu $\E \varepsilon = 0$ \[\E Y = \E \we^T \x + \E \varepsilon = \we^T \x\]
 
-$\hat{Y}$ je tedy bodovým odhadem $EY$ v bodě $\x$.
+$\hat{Y}$ je tedy bodovým odhadem $EY$ v~bodě $\x$.
 
 \subsection{Metoda nejmenších čtverců}
 
@@ -73,24 +73,24 @@ Položením $\nabla \RSS(\we) = \mathbf{0}$ obdržíme normální rovnici
 Předpokládáme-li, že $\X^T\X$ je regulární, pak lze $\we$ odhadnout následovně
 \[ \wh_{\text{OLS}} = (\X^T \X)^{-1} \X^T \Y \]
 
-V případě regulární matice $\X^T\X$ je $\wh_{\text{OLS}}$ jediným kritickým bodem. Z geometrické interpretace, kterou dosáhneme stejného výsledku, bude plynout, že se jedná o globální minimum $\RSS(\we)$.
+V~případě regulární matice $\X^T\X$ je $\wh_{\text{OLS}}$ jediným kritickým bodem. Z~geometrické interpretace, kterou dosáhneme stejného výsledku, bude plynout, že se jedná o~globální minimum $\RSS(\we)$.
 
-Predikce $\hat{Y}$ v bodě $\x$ je $\hat{Y} = \wh_{\text{OLS}}^T \x$.
+Predikce $\hat{Y}$ v~bodě $\x$ je $\hat{Y} = \wh_{\text{OLS}}^T \x$.
 
 \subsubsection{Geometrická interpretace}
 
-Minimalizace $\RSS(\we) = \| \Y - \X \we \|^2$ je problém ekvivalentní minimalizaci ${\| \Y - \X \we \|}$. Hledáme tedy $\we \in \R^{p+1}$ takové, že vektory $\Y$ a $\X\we$ jsou si v prostoru $\R^{N}$ co nejblíže.
+Minimalizace $\RSS(\we) = \| \Y - \X \we \|^2$ je problém ekvivalentní minimalizaci ${\| \Y - \X \we \|}$. Hledáme tedy $\we \in \R^{p+1}$ takové, že vektory $\Y$ a $\X\we$ jsou si v~prostoru $\R^{N}$ co nejblíže.
 
 $\X\we$ je lineární kombinací sloupců $\X$:
 \[ \X\we = \sum_{i=0}^{p} \we_i \X_{:,i} \in \langle \X_{:,0}, \X_{:,1}, \ldots, \X_{:,p} \rangle = \bm{P} \]
 
-Hledaný bod $\X\we$ je proto nejblíže k bodu $\Y$, právě pokud je vektor $\Y - \X\we$ ortogonální na podprostor $\bm{P}$:
+Hledaný bod $\X\we$ je proto nejblíže k~bodu $\Y$, právě pokud je vektor $\Y - \X\we$ ortogonální na podprostor $\bm{P}$:
 \[ \X_{:,i}^T(\Y - \X\we) = 0 \text{ pro všechna } i = 0, 1, \ldots, p \]
 Což po přepsání do maticového tvaru dá opět normální rovnici
 
 \[ \X^T(\Y - \X\we) = \X^T\Y - \X^T\X\we = \bm{0} \]
 
-Z úvah také navíc plyne, že každé $\wh$, které splňuje normální rovnici, $\RSS(\we)$ minimalizuje (jedná se o globální minimum).
+Z~úvah také navíc plyne, že každé $\wh$, které splňuje normální rovnici, $\RSS(\we)$ minimalizuje (jedná se o~globální minimum).
 
 \subsection{Regularita versus lineární nezávislost sloupců matice X}
 
@@ -102,15 +102,15 @@ Pro libovolné $\bm{s} \in \R^{p+1}$ platí následující posloupnost implikac�
     \Rightarrow \X^T\X\bm{s} = \mathbf{0}
 \]
 
-Z toho vyplývá, že $\X^T\X$ je regulární právě tehdy, když $\X\bm{s} = \bm{0}$ pouze pro $\bm{s} = \bm{0}$, což platí právě tehdy, když jsou sloupce matice $\X$ lineárně nezávislé. To zřejmě nemusí vždy platit: např. když $N < p+1$ nebo pokud je nějaký příznak lineární kombinací ostatních.
+Z~toho vyplývá, že $\X^T\X$ je regulární právě tehdy, když $\X\bm{s} = \bm{0}$ pouze pro $\bm{s} = \bm{0}$, což platí právě tehdy, když jsou sloupce matice $\X$ lineárně nezávislé. To zřejmě nemusí vždy platit: např. když $N < p+1$ nebo pokud je nějaký příznak lineární kombinací ostatních.
 
-Normální rovnice má v případě regulární $\X^T \X$ právě jedno řešení.
+Normální rovnice má v~případě regulární $\X^T \X$ právě jedno řešení.
 \[ \wh_{\text{OLS}} = (\X^T \X)^{-1} \X^T \Y \]
-V opačném případě má jich má nekonečně mnoho.
+V~opačném případě má jich má nekonečně mnoho.
 
 \subsection{Problém kolinearity}
 
-Pokud je nějaký příznak ``skoro'' lineární kombinací ostatních příznaků, pak můžeme narazit na problém kolinearity. V případě silně korelovaného příznaku je příslušná proměnná do jisté míry zbytečná, protože ve svém rozměru (dimenzi) nepřidává žádnou informaci navíc a zároveň může mít ve výsledném vektoru $\wh_{\text{OLS}}$ vysoký koeficient. Jako příklad lze uvést 3-dimenzionální prostor ($X_1, X_2, Y$) ve kterém řešení degeneruje do skoro-přímky, kterou lze protnou rovinou více způsoby.
+Pokud je nějaký příznak ``skoro'' lineární kombinací ostatních příznaků, pak můžeme narazit na problém kolinearity. V~případě silně korelovaného příznaku je příslušná proměnná do jisté míry zbytečná, protože ve svém rozměru (dimenzi) nepřidává žádnou informaci navíc a zároveň může mít ve výsledném vektoru $\wh_{\text{OLS}}$ vysoký koeficient. Jako příklad lze uvést 3-dimenzionální prostor ($X_1, X_2, Y$) ve kterém řešení degeneruje do skoro-přímky, kterou lze protnou rovinou více způsoby.
 
 \subsubsection{Důsledky kolinearity}
 
@@ -118,10 +118,10 @@ Ve výsledku kolinearita způsobuje vysoký rozptyl $\wh_{\text{OLS}}$, který j
 
 \subsubsection{Řešení problému kolinearity}
 
-Řešením by bylo odstranit příznaky, které kolinearity způsobují. To však není vždy jednoduché. S vyšším počtem příznaků je velmi obtížné takové sloupce identifikovat. Také se může stát, že kolinearita je mezi velkým počtem příznaků, které jsou dohromady klíčové pro správnou predikci. V takovém případě není ideální takové příznaky zahodit. Existují však metody, které dokážou počet příznaků snížit (odstraněním, případně nahrazením menším počtem) tak, aby byly sloupce LN.
+Řešením by bylo odstranit příznaky, které kolinearity způsobují. To však není vždy jednoduché. S~vyšším počtem příznaků je velmi obtížné takové sloupce identifikovat. Také se může stát, že kolinearita je mezi velkým počtem příznaků, které jsou dohromady klíčové pro správnou predikci. V~takovém případě není ideální takové příznaky zahodit. Existují však metody, které dokážou počet příznaků snížit (odstraněním, případně nahrazením menším počtem) tak, aby byly sloupce LN.
 
-Je také možné změnit funkci, kterou minimalizujeme, abychom měli stabilnější a jednoznačnější řešení. Typicky se přidává regulační člen, který problémy kolinearity může zmírnit (hřebenová regrese v sekci \ref{sec:ridge} nebo lasso v sekci \ref{sec:lasso}).
+Je také možné změnit funkci, kterou minimalizujeme, abychom měli stabilnější a jednoznačnější řešení. Typicky se přidává regulační člen, který problémy kolinearity může zmírnit (hřebenová regrese v~sekci \ref{sec:ridge} nebo lasso v~sekci \ref{sec:lasso}).
 
 \subsection{Shrnutí}
 
-Lineární regrese je rezistentní vůči problémům spojené s vysokou dimenzí dat. Problém nastává, když je dat méně než příznaků nebo když jsou příznaky silně korelované.
+Lineární regrese je rezistentní vůči problémům spojené s~vysokou dimenzí dat. Problém nastává, když je dat méně než příznaků nebo když jsou příznaky silně korelované.

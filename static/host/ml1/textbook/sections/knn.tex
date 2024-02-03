@@ -32,7 +32,7 @@ Pro $k=2$ Eukleidovskou vzdálenost
     d_2(\x, \y) = \sqrt{\sum_{i=0}^{p-1} (x_i - y_i)^2}
 \]
 
-A pro $k=+\infty$ Chebyshevovu vzdálenost
+A~pro $k=+\infty$ Chebyshevovu vzdálenost
 \[
     d_{\infty}(\x, \y) = \max_i |x_i - y_i|
 \]
@@ -46,7 +46,7 @@ Existují i sofistikovanější metriky jako je například Jaccardova pro množ
 
 \subsubsection{Váha sousedů}
 
-U regresních úloh může být váha sousedů uniformní (každý z $k$ sousedů má stejný vliv na výsledek predikce)
+U~regresních úloh může být váha sousedů uniformní (každý z~$k$ sousedů má stejný vliv na výsledek predikce)
 \[
     \hat{y} = \frac{1}{k} \sum_{i=0}^{k-1} y_k
 \]
@@ -63,13 +63,13 @@ nebo může být vážený podle vzdálenosti (bližší soused je vlivnější)
 
 \subsection{Použití pro klasifikaci a regresi}
 
-Pro trénovací data $\X \in \R^{N, p}$ s vysvětlovanou proměnou $Y \in \R^N$ predikujeme hodnotu vysvětlované proměnné pro datový bod $\x \in \R^p$ hlasováním (klasifikace), případně průměrem (regrese), $k$ nejbližších sousedů.
+Pro trénovací data $\X \in \R^{N, p}$ s~vysvětlovanou proměnou $Y \in \R^N$ predikujeme hodnotu vysvětlované proměnné pro datový bod $\x \in \R^p$ hlasováním (klasifikace), případně průměrem (regrese), $k$ nejbližších sousedů.
 
 Model kNN má tak velmi levné ``trénování", kdy pouze ukládá trénovací množinu do paměti. Predikce je ovšem výpočetně náročnější.
 
 \subsection{Normalizace dat}
 
-Kvůli rozdílným rozsahům příznaků mají rozsahy hodnot v původních datech nerovnoměrný příspěvek na vzdálenost. Tento problém se dá řešit normalizací do intervalu $[0,1]$, případně $[-1, 1]$, nebo standardizací.
+Kvůli rozdílným rozsahům příznaků mají rozsahy hodnot v~původních datech nerovnoměrný příspěvek na vzdálenost. Tento problém se dá řešit normalizací do intervalu $[0,1]$, případně $[-1, 1]$, nebo standardizací.
 
 \begin{equation*}
     \text{normalizace: }
@@ -87,7 +87,7 @@ Normalizace není vždy přímočará. Někdy se vyplatí normalizovat jen někt
 
 \subsection{Prokletí dimenzionality}
 
-Metodě kNN neprospívá vysoká dimenzionalita. S vyšší dimenzionalitou rostou vzdálenosti všech bodů a může se stát, že v případě řídkých dat je okolí, co do vzdálenosti, prázdné nebo nereprezentativní (rozdíl vzdálenosti vzdálených a blízkých bodů se zmenšuje).
+Metodě kNN neprospívá vysoká dimenzionalita. S~vyšší dimenzionalitou rostou vzdálenosti všech bodů a může se stát, že v~případě řídkých dat je okolí, co do vzdálenosti, prázdné nebo nereprezentativní (rozdíl vzdálenosti vzdálených a blízkých bodů se zmenšuje).
 
 Nominální data se předzpracovávají pomocí OHE, což kvůli těmto problémům není ideální. Problém představuje také přítomnost méně relevantní příznaků, protože se model chová ke všem rozměrům stejně.
 

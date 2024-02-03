@@ -1,14 +1,14 @@
 \section{Shluková analýza}
 
-Shluková analýza (clustering) je metoda nesupervizovaného učení, která rozřadí data do nějakých shluků tak, aby byly blízké body v jednom shluku a vzdálené v různých. Jak přesně formalizovat takovou úlohu je problematické, proto může mít různá řešení v závislosti na tom, jak definujeme vzdálenost.
+Shluková analýza (clustering) je metoda nesupervizovaného učení, která rozřadí data do nějakých shluků tak, aby byly blízké body v~jednom shluku a vzdálené v~různých. Jak přesně formalizovat takovou úlohu je problematické, proto může mít různá řešení v~závislosti na tom, jak definujeme vzdálenost.
 
-\paragraph{Vzdálenost} Pro připomenutí, definice metriky byla zevedena v sekci \ref{sec:metrika}.
+\paragraph{Vzdálenost} Pro připomenutí, definice metriky byla zevedena v~sekci \ref{sec:metrika}.
 
 \paragraph{Formalizace úlohy shlukování} Úloha na vstupu dostane metrický prostor $\calX$ se vzdáleností $d$, množinu dat $\D \subset \calX$ a počet požadovaných shluků $k$. Na výstupu se požaduje nějaký rozklad množiny $\D$ na $k$ shluků. To znamená $C_1, \ldots, C_k \subset \D$, kde $C_i \neq C_j$ pro všechna $i \neq j$, přičemž \[\D = \bigcup_{i=1}^{k} C_i.\]
 
 \subsection{Hierarchické shlukování}
 
-Hierarchické shlukování používá hladový aglomerativní přístup popsaný v následujícím algoritmu.
+Hierarchické shlukování používá hladový aglomerativní přístup popsaný v~následujícím algoritmu.
 
 \begin{algorithm}[H]
     \renewcommand{\thealgorithm}{}
@@ -28,7 +28,7 @@ Hierarchické shlukování používá hladový aglomerativní přístup popsaný
 
 \subsubsection{Měření vzdáleností shluků}
 
-Po volbě metriky dvou bodů $d(a, b)$ je ještě nutné zvollit vzdálenost dvou shluků $D(A, B)$. Obvykle se použije jedna z následujících:
+Po volbě metriky dvou bodů $d(a, b)$ je ještě nutné zvollit vzdálenost dvou shluků $D(A, B)$. Obvykle se použije jedna z~následujících:
 \begin{itemize}
 
     \item Single linkage, který generuje dlouhé řetězce
@@ -58,7 +58,7 @@ Po volbě metriky dvou bodů $d(a, b)$ je ještě nutné zvollit vzdálenost dvo
 
 \subsubsection{Dendrogram}
 
-Celý proces aglomerativního shlukování lze reprezentovat dendrogramem. To je strom, který má v listech počáteční jednoprvkové shluky a ve vrcholech spojení. Obvykle algoritmus běží, dokud nespojí všechny shluky, v takovém případě má v kořeni finální shluk. Strom se vykresluje tak, že listy jsou ve výšce 0 a jednotlivé vrcholy ve výšce podle vzdálenosti shluků, které se v daném bodě spojily (vzdálenost, kterou musely ``překonat'').
+Celý proces aglomerativního shlukování lze reprezentovat dendrogramem. To je strom, který má v~listech počáteční jednoprvkové shluky a ve vrcholech spojení. Obvykle algoritmus běží, dokud nespojí všechny shluky, v~takovém případě má v~kořeni finální shluk. Strom se vykresluje tak, že listy jsou ve výšce 0 a jednotlivé vrcholy ve výšce podle vzdálenosti shluků, které se v~daném bodě spojily (vzdálenost, kterou musely ``překonat'').
 
 \begin{center}
     \scalebox{0.8}{\input{images/dendrogram.pgf}}
@@ -66,23 +66,23 @@ Celý proces aglomerativního shlukování lze reprezentovat dendrogramem. To je
 
 Máme-li požadované $k$, příslušně dendrogram rozřízneme tak, aby vodorovná čára protla přesně $k$ hran. Každá taková hrana odpovídá nějakému shluku. Případně můžeme zvolit nějakou danou výšku (přijatelnou vzdálenost shluků).
 
-\paragraph{Shrnuťí} Výhodou Hierarchického shlukování je flexibilita. Můžeme algoritmus provést a pak následně rozhodovat o rozdělení. Při změně počtu shluků stačí jen změnit místo, ve kterém provádíme řez (struktura dendrogramu se nemění).
+\paragraph{Shrnuťí} Výhodou Hierarchického shlukování je flexibilita. Můžeme algoritmus provést a pak následně rozhodovat o~rozdělení. Při změně počtu shluků stačí jen změnit místo, ve kterém provádíme řez (struktura dendrogramu se nemění).
 
-Nevýhodou hierarchického shlukování je výpočetní náročnost $\mathcal{O}(n^3)$, v případě single/complete linkage lze zefektivnit na $\mathcal{O}(n^2)$. Pro velké datové soubory se proto nehodí.
+Nevýhodou hierarchického shlukování je výpočetní náročnost $\mathcal{O}(n^3)$, v~případě single/complete linkage lze zefektivnit na $\mathcal{O}(n^2)$. Pro velké datové soubory se proto nehodí.
 
 \subsection{Algoritmus k-means}
 
 \subsubsection{Shlukování jako optimalizační úloha}
 
-Ke shlukování lze přistupovat jako k optimalizační úloze, ve které minimalizujeme účelovou funkci (objective function).
+Ke shlukování lze přistupovat jako k~optimalizační úloze, ve které minimalizujeme účelovou funkci (objective function).
 
-Pro dané $k$ hledáme rozklad $C = (C_1, \ldots, C_k)$ množiny dat $\X$ v metrickém prostoru $\calX = \R^p$ vybavenou Eukleidovskou vzdáleností minimalizující účelovou funkci
+Pro dané $k$ hledáme rozklad $C = (C_1, \ldots, C_k)$ množiny dat $\X$ v~metrickém prostoru $\calX = \R^p$ vybavenou Eukleidovskou vzdáleností minimalizující účelovou funkci
 \[
     G(C) = \sum_{C_i} \frac{1}{2 |C_i|} \sum_{\x, \y \in C_i} \|\x - \y\|^2
 \]
-Jedná se o průměrnou kvadratickou vzdálenost vnitřních bodů.
+Jedná se o~průměrnou kvadratickou vzdálenost vnitřních bodů.
 
-\paragraph{Souvislost účelové funkce s geometrickým středem}
+\paragraph{Souvislost účelové funkce s~geometrickým středem}
 Lze ukázat, že takový součet lze vyjádřit jako součet kvadrátů vzdálenosti od geometrického středu příslušných shluků.
 \[
     \frac{1}{2 |C_i|} \sum_{\x, \y \in C_i} \|\x - \y\|^2
@@ -92,7 +92,7 @@ Lze ukázat, že takový součet lze vyjádřit jako součet kvadrátů vzdálen
 
 \subsubsection{k-means}
 
-Algoritmus k-means využívá předchozí rovnosti a jediné, s čím ``manipuluje'', jsou středy shluků. Nalezení globálního minima je NP-těžká úloha, proto se používá iterativní způsob, který hladově zmenšuje hodnotu účelové funkce.
+Algoritmus k-means využívá předchozí rovnosti a jediné, s~čím ``manipuluje'', jsou středy shluků. Nalezení globálního minima je NP-těžká úloha, proto se používá iterativní způsob, který hladově zmenšuje hodnotu účelové funkce.
 
 \begin{algorithm}[H]
     \renewcommand{\thealgorithm}{}
@@ -117,21 +117,21 @@ Algoritmus k-means využívá předchozí rovnosti a jediné, s čím ``manipulu
     \end{algorithmic}
 \end{algorithm}
 
-Lze ukázat, že v každém kroku algoritmu se hodnota účelové funkce zmenší, případně zůstane stejná (v průběhu algoritmu je hodnota účelové funkce nerostoucí).
+Lze ukázat, že v~každém kroku algoritmu se hodnota účelové funkce zmenší, případně zůstane stejná (v~průběhu algoritmu je hodnota účelové funkce nerostoucí).
 
 Běh algoritmu skončí, pokud se žádný ze středů nepřepočítá nebo pokud je rozdíl hodnot účelové funkce mezi iteracemi dostatečně malá.
 
-Výsledek algoritmu hodně záleží na počátečním rozmístění středů, proto se typicky algoritmus spouští víckrát s různými počátky, z nichž si následně vybere shluk s nejnižší účelovou funkcí. Existuje rozšíření algoritmu, které vybírá počátky tak, aby byly ``chytře'' rozmístěné (k-means++).
+Výsledek algoritmu hodně záleží na počátečním rozmístění středů, proto se typicky algoritmus spouští víckrát s~různými počátky, z~nichž si následně vybere shluk s~nejnižší účelovou funkcí. Existuje rozšíření algoritmu, které vybírá počátky tak, aby byly ``chytře'' rozmístěné (k-means++).
 
 \paragraph{Volba počtu shluků}
 
-k-means algoritmus dává různé výsledky pro různá $k$, proto je důležité jej stanovit dopředu. S rostoucím $k$, zřejmě hodnota účelové funkce vždy klesá (případně neroste), proto je volba často subjektivní. Jednou z metod (i když nespolehlivých) je metoda lokte (elbow method), která předpokládá to, že existuje nějaké ideální $k*$, takové, že hodnota účelové funkce s rostoucím $k < k*$ rychle klesá, a pro $k > k*$ roste méně. Zlomový bod je předpokládaný loket, který ale není vždy úplně jednoznačný či optimální. Alternativní způsob ohodnocení clusteringu je například silhouette.
+k-means algoritmus dává různé výsledky pro různá $k$, proto je důležité jej stanovit dopředu. S~rostoucím $k$, zřejmě hodnota účelové funkce vždy klesá (případně neroste), proto je volba často subjektivní. Jednou z~metod (i když nespolehlivých) je metoda lokte (elbow method), která předpokládá to, že existuje nějaké ideální $k*$, takové, že hodnota účelové funkce s~rostoucím $k < k*$ rychle klesá, a pro $k > k*$ roste méně. Zlomový bod je předpokládaný loket, který ale není vždy úplně jednoznačný či optimální. Alternativní způsob ohodnocení clusteringu je například silhouette.
 
 \subsection{Silhouette skóre}
 
 Silhouette score je jednoduchou metodou pro evaluaci shlukování pro různá porovnání nebo i pro výběr optimálního počtu shluků (pro k-means).
 
-Uvažujme nějaké shlukování $\D = C_1 \cup \ldots \cup C_k$ na metrickém prostoru $\calX$ s metrikou $d(x, y)$, kde $\forall x \in \D: x \in C_{j(x)}$. Pro každý bod $x \in \D$ se spočítá:
+Uvažujme nějaké shlukování $\D = C_1 \cup \ldots \cup C_k$ na metrickém prostoru $\calX$ s~metrikou $d(x, y)$, kde $\forall x \in \D: x \in C_{j(x)}$. Pro každý bod $x \in \D$ se spočítá:
 
 \begin{itemize}
 
@@ -140,7 +140,7 @@ Uvažujme nějaké shlukování $\D = C_1 \cup \ldots \cup C_k$ na metrickém pr
         a(x) = \frac{1}{|C_{j(x)}| - 1} \sum_{y \in C_{j(x)}, y \neq x} d(x, y)
     \]
 
-    \item průměrná vzdálenost bodu od bodů v jiném shluku:
+    \item průměrná vzdálenost bodu od bodů v~jiném shluku:
     \[
         d(x, C_i) = \frac{1}{|C_{j(x)}|} \sum_{y \in C_i} d(x, y)
     \]
@@ -158,15 +158,15 @@ Finální skóre bodu $x \in \D$ se počítá následujícím vzorcem:
 \[
     s(x) = \frac{b(x) - a(x)}{\max {a(x), b(x)}}
 \]
-V případě jednoho shluku je $s(x) = 0$.
+V~případě jednoho shluku je $s(x) = 0$.
 
-Pokud je $s(x)$ blízko 1, $b(x) \gg a(x)$, pak je bod dobře zařazen. Pokud je $s(x)$ blízko 0, $b(x) \approx a(x)$, je bod na kraji svého a sousedního shluku (také v pořádku). Je-li však $s(x)$ blízko -1, $b(x) \ll a(x)$, je bod špatně zařazen. Poznamenejme, že v takovém případě nestačí bod jen přemístit do druhého -- změnilo by celé ohodnocení (mohlo by být ve výsledku shlukování ještě zhoršit).
+Pokud je $s(x)$ blízko 1, $b(x) \gg a(x)$, pak je bod dobře zařazen. Pokud je $s(x)$ blízko 0, $b(x) \approx a(x)$, je bod na kraji svého a sousedního shluku (také v~pořádku). Je-li však $s(x)$ blízko -1, $b(x) \ll a(x)$, je bod špatně zařazen. Poznamenejme, že v~takovém případě nestačí bod jen přemístit do druhého -- změnilo by celé ohodnocení (mohlo by být ve výsledku shlukování ještě zhoršit).
 
-S ohodnocením jednotlivých bodů lze nyní provést evaluaci jednotlivých clusterů i celého shlukování:
+S~ohodnocením jednotlivých bodů lze nyní provést evaluaci jednotlivých clusterů i celého shlukování:
 \[
     s(C_i) = \frac{1}{|C_i|} \sum_{x \in C_i} s(x)
     \qquad
     s = \frac{1}{|\D|} \sum_{x \in \D} s(x)
 \]
 
-Vyšší hodnota (blíže k 1) značí lepší shlukování (lepší celkové umístění jednotlivých bodů).
+Vyšší hodnota (blíže k~1) značí lepší shlukování (lepší celkové umístění jednotlivých bodů).

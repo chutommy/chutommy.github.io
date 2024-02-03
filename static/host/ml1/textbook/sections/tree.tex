@@ -1,12 +1,12 @@
 \section{Rozhodovací stromy}
 
-Na vstup předpokládáme tabulku s $N$ záznamy a $p$ příznaky $X_0, X_1, \dots, X_{p-1}$. Cílem je vytvořit rozhodovací strom který přiřadí co nejvíce vstupům co nejpřesnější hodnoty $Y$. Exhaustive search takového optimálního stromu je NP-úplný problém, existují však algoritmy nabízející kompromis. Pro klasifikaci ID3 a pro regresi CART nabízejí suboptimální ale dosažitelné řešení.
+Na vstup předpokládáme tabulku s~$N$ záznamy a $p$ příznaky $X_0, X_1, \dots, X_{p-1}$. Cílem je vytvořit rozhodovací strom který přiřadí co nejvíce vstupům co nejpřesnější hodnoty $Y$. Exhaustive search takového optimálního stromu je NP-úplný problém, existují však algoritmy nabízející kompromis. Pro klasifikaci ID3 a pro regresi CART nabízejí suboptimální ale dosažitelné řešení.
 
 \subsection{Algoritmus ID3}
 
-Algoritmus ID3 je hladový algoritmus pro konstrukci rozhodovacího stromu. V každém vrcholu hledá podle zadaného kritéria nejlepší test (rozhodovací pravidlo) nepoužitých příznaků, které nejlépe rozdělí data na dvě podmnožiny, které maximalizují vybrané kritérium.
+Algoritmus ID3 je hladový algoritmus pro konstrukci rozhodovacího stromu. V~každém vrcholu hledá podle zadaného kritéria nejlepší test (rozhodovací pravidlo) nepoužitých příznaků, které nejlépe rozdělí data na dvě podmnožiny, které maximalizují vybrané kritérium.
 
-Algoritmus začíná s celým datasetem a rekurzivně se zanořuje do synů, dokud nenastane zastavovací kritérium (typicky max hloubka, malý počet záznamů v listech, ...).
+Algoritmus začíná s~celým datasetem a rekurzivně se zanořuje do synů, dokud nenastane zastavovací kritérium (typicky max hloubka, malý počet záznamů v~listech, ...).
 
 \subsection{Kritéria pro větvení}
 
@@ -16,7 +16,7 @@ Na binární množině kde $p_0$ a $p_1$ označují poměry 0 a 1, definujeme m�
 \begin{enumerate}
     \item nezápornost na $[0, 1]$,
     \item nulovost pro $p_0 = 1$ nebo $p_0 = 0$,
-    \item maximum nabývá v $p_0 = \frac{1}{2}$,
+    \item maximum nabývá v~$p_0 = \frac{1}{2}$,
     \item je rostoucí na $\left[0, \frac{1}{2}\right]$ a klesající na $\left[\frac{1}{2}, 1\right]$
 \end{enumerate}
 
@@ -32,7 +32,7 @@ Entropii lze definovat i pro nebinární hodnoty.
     H(\D) = - \sum_{i=0}^{k-1} p_i \log p_i
 \]
 
-Entropie (pojem z teorie informace) používá dvojkový logaritmus a pracuje s jednotkou bit (Claude Shannon).
+Entropie (pojem z~teorie informace) používá dvojkový logaritmus a pracuje s~jednotkou bit (Claude Shannon).
 
 \subsubsection{Gini index}
 
@@ -54,13 +54,13 @@ kde $\D_0, \D_1$ jsou příslušné podmnožiny $\D$ a $t_0, t_1$ poměry počtu
 
 \subsubsection{Klasifikace}
 
-V případě klasifikace strom rozhoduje většinovým hlasováním v příslušném listu, do kterého záznam přísluší. Poměr výsledného prvku v listu určuje jistotu modelu při takové volbě.
+V~případě klasifikace strom rozhoduje většinovým hlasováním v~příslušném listu, do kterého záznam přísluší. Poměr výsledného prvku v~listu určuje jistotu modelu při takové volbě.
 
 \subsubsection{Regrese}
 
-U regrese se rozhoduje podle průměru v příslušném listu.
+U~regrese se rozhoduje podle průměru v~příslušném listu.
 
-Konstrukce stromu v regresní úloze probíhá podobně jako v klasifikační. Místo minimalizace míry neuspořádanosti, algoritmus dělí data tak, aby byly hodnoty v listech co nejblíže ke střední hodnotě.
+Konstrukce stromu v~regresní úloze probíhá podobně jako v~klasifikační. Místo minimalizace míry neuspořádanosti, algoritmus dělí data tak, aby byly hodnoty v~listech co nejblíže ke střední hodnotě.
 
 Pro odhad odchylky od střední hodnoty se používá MSE (mean squared error), případně MAE (mean absolute error).
 
@@ -88,10 +88,10 @@ Rozhodovací stromy mají často nízký bias a vysokou varianci. Jako hyperpara
     \item dělící kritérium
           \begin{enumerate}
               \item gini, entropy (klasifikace)
-              \item squared error, absolute error (u regrese)
+              \item squared error, absolute error (u~regrese)
           \end{enumerate}
     \item max hloubka, od které algoritmus už dále nedělí
-    \item minimální počet dat v množině před, resp. po, dělení
+    \item minimální počet dat v~množině před, resp. po, dělení
     \item minimální nutná hodnota informačního zisku
 \end{enumerate}
 

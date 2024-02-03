@@ -6,17 +6,17 @@ Logistická regrese predikuje pravděpodobnost jednotlivých hodnot vysvětlovan
 
 \subsubsection{Sigmoida}
 
-V modelu použijeme lineární výraz $\wt\x = w_0 + w_1 x_1 + \ldots + w_p x_p$, který má však obor hodnot na celém $\R$. Tento výraz proto dosadíme do funkce, která je ostře rostoucí a má obor hodnot podmnožinu $[0, 1]$. V logistické regresi volíme sigmoidu
+V~modelu použijeme lineární výraz $\wt\x = w_0 + w_1 x_1 + \ldots + w_p x_p$, který má však obor hodnot na celém $\R$. Tento výraz proto dosadíme do funkce, která je ostře rostoucí a má obor hodnot podmnožinu $[0, 1]$. V~logistické regresi volíme sigmoidu
 \[f(x) = \frac{e^x}{1+e^x} = \frac{1}{1+e^{-x}}\]
-Jedná se o speciální případ logistické funkce
+Jedná se o~speciální případ logistické funkce
 \[f(x) = \frac{L}{1 + e^{-k(x-x_0)}},\]
 se supremem $L=1$, koeficientem růstu $k=1$ a středem $x_0 = 0$.
 
-Sigmoida má jako definiční obor celé $\R$ a obor hodnot $(0, 1)$. Na celém definičním oboru je ostře rostoucí, limita pro $x \rightarrow -\infty$ je 0 a pro $x \rightarrow +\infty$ je 1. Také platí, že střed má v bodě 0: $f(0) = \frac{1}{2}$.
+Sigmoida má jako definiční obor celé $\R$ a obor hodnot $(0, 1)$. Na celém definičním oboru je ostře rostoucí, limita pro $x \rightarrow -\infty$ je 0 a pro $x \rightarrow +\infty$ je 1. Také platí, že střed má v~bodě 0: $f(0) = \frac{1}{2}$.
 
 \subsubsection{Fungování modelu logistické regrese}
 
-Binární klasifikace vysvětlované proměnné $Y \in \{0,1\}$ s $p$ příznaky $X_1, \ldots, X_p$ logistická regrese provede predikcí pravděpodobnosti
+Binární klasifikace vysvětlované proměnné $Y \in \{0,1\}$ s~$p$ příznaky $X_1, \ldots, X_p$ logistická regrese provede predikcí pravděpodobnosti
 \begin{equation*}
     \text{P} (Y=1 \mid \x, \we ) = \frac{e^{\wtx}}{1 + e^{\wtx}},
 \end{equation*}
@@ -32,11 +32,11 @@ Hranice rozhodnutí je dána rovnicí
     \quad \Leftrightarrow \quad
     w_0 + w_1 x_1 + \ldots + w_p x_p = 0
 \end{equation*}
-To odpovídá nadrovině v prostoru $\R^p$. Hranici tedy tvoří lineární varieta dimenze $p-1$.
+To odpovídá nadrovině v~prostoru $\R^p$. Hranici tedy tvoří lineární varieta dimenze $p-1$.
 
 \subsection{Logistická regrese jako MLE odhad}
 
-Vzhledem k tomu, že u logistické regrese predikujeme pravděpodobnost hodnot proměnné $Y$, nelze vyloženě měřit chybu takových odhadů a následně je minimalizovat jako u lineární regrese. Proto parametry $\we$ odhadujeme MLE (maximum likelihood estimation) metodou maximální věrohodností.
+Vzhledem k~tomu, že u~logistické regrese predikujeme pravděpodobnost hodnot proměnné $Y$, nelze vyloženě měřit chybu takových odhadů a následně je minimalizovat jako u~lineární regrese. Proto parametry $\we$ odhadujeme MLE (maximum likelihood estimation) metodou maximální věrohodností.
 
 \subsubsection{Myšlenka MLE odhadu}
 
@@ -74,14 +74,14 @@ Parciální derivace a gradient vychází
     \text{kde } \bm{P} = (p_1(\x_1; \we), \ldots, p_1(\x_N; \we))^T
 \end{equation*}
 
-Náš odhad leží v bodě, kde věrohodnost nabývá maxima, což nalezneme položením gradientu nule:
+Náš odhad leží v~bodě, kde věrohodnost nabývá maxima, což nalezneme položením gradientu nule:
 \begin{equation*}
     \nabla \ell(\wh; \X)
     = \X^T\left(\Y - \bm{\hat{P}}\right)
     = \bm{0}
 \end{equation*}
-Zde neexistuje explicitní řešení a je třeba jej hledat numerickými aproximativními metodami (např. vícerozměrnou Newtonovou metodou lze ukázat, že řešení konverguje k lok. maximu, které je v případě logistické regrese současně globálním maximem).
+Zde neexistuje explicitní řešení a je třeba jej hledat numerickými aproximativními metodami (např. vícerozměrnou Newtonovou metodou lze ukázat, že řešení konverguje k~lok. maximu, které je v~případě logistické regrese současně globálním maximem).
 
 Výpočet koeficientů logistické regrese je výpočetně náročný. Bez explicitního vzorce je výsledek jen aproximace a je možné, že počítač nic nevrátí (nepodaří se mu nalézt dostatečně dobrá aproximace).
 
-Funkce $\ell(\we; \X)$ také žádné maximum mít nemusí. V takovém případě se numerickou metodou pouze snažíme hledat přibližné řešení $\X^T\left(\Y - \bm{\hat{P}}\right) = \bm{0}$.
+Funkce $\ell(\we; \X)$ také žádné maximum mít nemusí. V~takovém případě se numerickou metodou pouze snažíme hledat přibližné řešení $\X^T\left(\Y - \bm{\hat{P}}\right) = \bm{0}$.
