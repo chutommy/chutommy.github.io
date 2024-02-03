@@ -1,6 +1,6 @@
 ---
 title: ""
-layout: ""
+layout: "refindex"
 url: "/index"
 
 showBreadCrumbs: false
