@@ -1,5 +1,5 @@
 ---
-title: "Index"
+title: ""
 layout: "refindex"
 url: "/i"
 
@@ -7,15 +7,15 @@ showBreadCrumbs: false
 hideMeta: true
 ---
 
-#### Mathematical Analysis
+#### Data Analysis
 * [Project 1](/host/viz/01/index.html)
 * [Project 2](/host/viz/02/index.html)
 * [Project 3](/host/viz/03/index.html)
 
 #### Machine Learning
 * [Personal Textbook](/host/ml1/textbook/main.pdf)
-* [Project 1](/host/ml1/01/index.html)
-* [Project 2](/host/ml1/02/index.html)
+* [Countries by Life Expectancy (Regression)](/host/ml1/projects/life_expectancy.html)
+* [Titanic Survivors (Classifier)](/host/ml1/projects/titanic.html)
 
 #### Probability and Statistics
 * [Natural Selection (Humerus Analysis)](/host/pst/analysis.html)
