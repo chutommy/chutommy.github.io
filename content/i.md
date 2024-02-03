@@ -28,8 +28,8 @@ hideMeta: true
 
 #### Algorithms and Graphs
 * Practice exercises:
-[1](/host/ag/01.pdf)
-[2](/host/ag/02.pdf),
-[3](/host/ag/03.pdf),
-[4](/host/ag/04.pdf),
-[5](/host/ag/05.pdf)
+[`1`](/host/ag/01.pdf),
+[`2`](/host/ag/02.pdf),
+[`3`](/host/ag/03.pdf),
+[`4`](/host/ag/04.pdf),
+[`5`](/host/ag/05.pdf)
