@@ -1,7 +1,7 @@
 ---
 title: ""
-layout: "refindex"
-url: "/index"
+layout: "resources"
+url: "/resources"
 
 showBreadCrumbs: false
 hideMeta: true
