@@ -1,7 +1,7 @@
 ---
 title: ""
-layout: "refindex"
-url: "/i"
+layout: ""
+url: "/index"
 
 showBreadCrumbs: false
 hideMeta: true
