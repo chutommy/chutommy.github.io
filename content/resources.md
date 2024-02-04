@@ -16,15 +16,15 @@ hideMeta: true
 * [Natural Selection (Humerus Analysis)](/host/pst/analysis.html)
 * [Normal Distribution](/host/pst/norm.html)
 
+#### Data Analysis
+* [Protein Family Classification](/host/viz/pfam-classification.html)
+* [Prague Integrated Transport Network Analysis](/host/viz/pid-network-analysis.html)
+* [Animal Shelter (Exploratory Data Analysis)](/host/viz/animal-shelter-eda.html)
+
 #### Mathematical Analysis
 * [Sine in Integers (Dense Set Analysis)](/host/ma/sin-everywhere-dense/dense-sin.pdf)
 * [Sign of Sine (Sequence Periodicity)](/host/ma/sgn-sin-int-periodicity/sgn-sin.pdf)
 * [Countable Stationary Points](/host/ma/inf-saddles/inf-saddles.pdf)
-
-#### Data Analysis
-* [Project 1](/host/viz/01/index.html)
-* [Project 2](/host/viz/02/index.html)
-* [Project 3](/host/viz/03/index.html)
 
 #### Algorithms and Graphs
 * Practice exercises:
