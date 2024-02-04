@@ -29,13 +29,13 @@
 \usepackage{pgfplots}
 \usepackage{lmodern}
 \usepackage{import}
-\usepackage{microtype}
+\usepackage[nopatch=item]{microtype}
 \usepackage{fancyhdr}
 \usepackage{parskip}
 \usepackage{titling}
 
 \graphicspath{ {./images/} }
-
+\pgfplotsset{compat=1.18}
 \microtypesetup{
     protrusion=true,
     activate={true,nocompatibility},
