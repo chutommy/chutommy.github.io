@@ -31,11 +31,11 @@
 \usepackage{microtype}
 \usepackage{fancyhdr}
 \usepackage{parskip}
-\usepackage{svg}
 \usepackage{titling}
+\usepackage{bookmark}
 
 \graphicspath{ {./images/} }
-
+\pgfplotsset{compat=1.18}
 \microtypesetup{
     protrusion=true,
     activate={true,nocompatibility},
@@ -87,7 +87,7 @@ Množinu sedlových bodů $S$ tvoří rovina ${x=0}$.
 \qed
 
 \begin{center}
-    \includesvg[width=8cm]{f.svg}
+    \includegraphics[width=8cm]{f.pdf}
 \end{center}
 
 \end{document}
