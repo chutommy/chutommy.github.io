@@ -8,7 +8,7 @@ hideMeta: true
 ---
 
 #### Machine Learning
-* [BI-ML: A Personal Textbook](/host/ml/textbook/ml-textbook.pdf)
+* [BI-ML: Personal Textbook](/host/ml/textbook/ml-textbook.pdf)
 * [Countries by Life Expectancy (Regression)](/host/ml/projects/life_expectancy.html)
 * [Titanic Survivors (Classifier)](/host/ml/projects/titanic.html)
 
@@ -33,3 +33,6 @@ hideMeta: true
 [`3`](/host/ag/ag03.pdf),
 [`4`](/host/ag/ag04.pdf),
 [`5`](/host/ag/ag05.pdf)
+
+#### Cryptography and Security
+* [BI-KAB: Personal Handbook](/host/kab/kab-handbook.pdf)
