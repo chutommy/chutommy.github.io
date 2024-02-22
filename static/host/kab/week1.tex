@@ -1,0 +1,128 @@
+\section{Opakování teorie čísel}
+
+\subsection{Základní pojmy}
+
+Buďte $a,b \in \Z$.
+
+\begin{itemize}
+    \item $n \in \N_0$ je \emph{společný dělitel} čísel $a, b$, jestliže $n|a \wedge n|b$.
+    \item $\gcd(a,b)$ je \emph{největší společný dělitel} (greatest common divisor).
+    \item $a,b$ nazýváme \emph{nesoudělná}, jestliže $\gcd(a,b)=1$.
+    \item $n \in \N_0$ je \emph{společný násobek} čísel $a, b$, jestliže $a|n \wedge b|n$.
+    \item $\lcm(a,b)$ je \emph{nejmenší společný násobek} (least common multiple).
+\end{itemize}
+
+\subsection{Vztah gcd a lcm}
+
+\[
+    \gcd(a, b) \cdot \text{lcm}(a, b) = |a| \cdot |b|
+\]
+
+\subsection{Kongruence modulo m}
+
+\[
+    \begin{array}{rcl}
+        a         & \equiv & b \; \pmod m                                                \\
+        a \bmod m & =      & b \bmod m                                                   \\
+        |a|_m     & =      & |b|_m                                                       \\
+        |a - b|_m & =      & 0                                                           \\
+        a         & =      & b + k \cdot m, \; k \in \mathbb{Z}                          \\
+        m         & \mid   & (a - b), \; \text{tzn.} \; m \; \text{dělí rozdíl} \; a - b \\
+    \end{array}
+\]
+
+\subsection{Operace v modulu}
+
+Kongruence modulo $m$ zachovává operace $+,-,\cdot$. Pro libovolné $c \in \Z$ a $k \in \N$ platí:
+
+\[
+    \begin{array}{rll}
+        a + c     & \equiv b + c     & \pmod m \\
+        a - c     & \equiv b - c     & \pmod m \\
+        a \cdot c & \equiv b \cdot c & \pmod m \\
+        a^k       & \equiv b^k       & \pmod m
+    \end{array}
+\]
+
+Označíme-li $d = \gcd(c, m)$, pak lze i krátit:
+
+\[
+    a \cdot c \equiv b \cdot c \pmod m
+    \quad\Leftrightarrow\quad
+    a \equiv b \pmod{\tfrac{m}{c}}
+\]
+
+\subsection{Multiplikativní inverze}
+
+V $\Z_m$ existuje multiplikativní inverze k $a$ právě tehdy, když $\gcd(a,m)=1$, a lze najít pomocí EEA, případně Malou Fermatovou/Eulerovou větou.
+
+\subsection{Extended Euclidean algorithm}
+
+\[
+    \begin{array}{c|cc|c}
+        r_i              & \alpha_i    & \beta_i     & q_i                            \\[1.5mm] \hline
+        a                & 1           & 0           & -                              \\[1.5mm]
+        b                & 0           & 1           & q_2=\lfloor\tfrac{a}{b}\rfloor \\[1.5mm] \hline
+        r_3=a-q_2\cdot b & 1-q_2\cdot0 & 0-q_2\cdot1 & q_3                            \\[1.5mm]
+        \dots            & \dots       & \dots       & \dots                          \\[1.5mm]
+        r_k=\gcd(a,b)    & \alpha      & \beta       & q_k                            \\[1.5mm]
+        r_{k+1}=0        & -           & -           & -                              \\[1.5mm]
+    \end{array}
+\]
+
+\subsection{Square and Multiply}
+
+\[
+    \left| 6^{23} \right|_{13} = \left| 6^{10111_2} \right|_{13} = \text{?}
+\]
+
+\[
+    \begin{array}{rll}
+        \left| 6^{{\color{red}1}_2} \right|_{13} =     & \left| {\color{red}6} \right|_{13}         & = 6  \\[1.8mm]
+        \left| 6^{10_2} \right|_{13} =                 & \left| 6^{2} \right|_{13}                  & = 10 \\[1.8mm]
+        \left| 6^{100_2} \right|_{13} =                & \left| 10^2 \right|_{13}                   & = 9  \\[1.8mm]
+        \left| 6^{10{\color{red}1}_2} \right|_{13} =   & \left| 9 \cdot {\color{red}6} \right|_{13} & = 2  \\[1.8mm]
+        \left| 6^{1010_2} \right|_{13} =               & \left| 2^2 \right|_{13}                    & = 4  \\[1.8mm]
+        \left| 6^{101{\color{red}1}_2} \right|_{13} =  & \left| 4 \cdot {\color{red}6} \right|_{13} & = 11 \\[1.8mm]
+        \left| 6^{10110_2} \right|_{13} =              & \left| 11^2 \right|_{13}                   & = 4  \\[1.8mm]
+        \left| 6^{1011{\color{red}1}_2} \right|_{13} = & \left| 4 \cdot {\color{red}6} \right|_{13} & = 11
+    \end{array}
+\]
+
+\subsection{Eulerova věta}
+
+Pokud jsou $m \ge 2$ a $a \in \N$ nesoudělná, pak platí kongruence:
+
+\[
+    a^{\varphi(m)} \equiv 1 \pmod{m}
+\]
+
+\subsection{Hodnoty Eulerovy funkce}
+
+Číslo $p$ je prvočíslem, právě když $\varphi(p) = p - 1$, a platí:
+
+\[
+    \varphi(p^\alpha) = p^\alpha - p^{\alpha-1}
+\]
+
+Jedná se o speciální případ rozkladu složeného čísla $m = p_1^{\alpha_1} \cdot p_2^{\alpha_2} \cdots p_k^{\alpha_k}$:
+
+\[
+    \varphi(m) = m
+    \left( 1 - \frac{1}{p_1} \right)
+    \left( 1 - \frac{1}{p_2} \right)\cdots
+    \left( 1 - \frac{1}{p_k} \right)
+\]
+
+Pokud jsou $m \in \N$ a $a \in \Z_m$ nesoudělné, pak $a^{\varphi(m)-1}$ je multiplikativní inverzí čísla $a \bmod m$.
+
+\subsection{Malá Fermatova věta}
+
+Jedná se o speciální případ Eulerovy věty. Pokud jsou prvočíslo $p$ a $a \in \mathbb N$ nesoudělná (tedy $p \nmid a$), potom platí kongruence:
+
+\[
+    \begin{array}{rl}
+        a^{p-1}                                               & \equiv 1 \pmod{p}     \\
+        \text{a pro $a\in \Z_p\setminus\{0\}$:} \quad a^{p-2} & \equiv a^{-1} \pmod p
+    \end{array}
+\]
