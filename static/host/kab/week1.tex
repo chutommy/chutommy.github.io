@@ -7,7 +7,7 @@ Buďte $a,b \in \Z$.
 \begin{itemize}
     \item $n \in \N_0$ je \emph{společný dělitel} čísel $a, b$, jestliže $n|a \wedge n|b$.
     \item $\gcd(a,b)$ je \emph{největší společný dělitel} (greatest common divisor).
-    \item $a,b$ nazýváme \emph{nesoudělná}, jestliže $\gcd(a,b)=1$.
+    \item $a,b$ jsou \emph{nesoudělné}, jestliže $\gcd(a,b)=1$.
     \item $n \in \N_0$ je \emph{společný násobek} čísel $a, b$, jestliže $a|n \wedge b|n$.
     \item $\lcm(a,b)$ je \emph{nejmenší společný násobek} (least common multiple).
 \end{itemize}
@@ -49,12 +49,12 @@ Označíme-li $d = \gcd(c, m)$, pak lze i krátit:
 \[
     a \cdot c \equiv b \cdot c \pmod m
     \quad\Leftrightarrow\quad
-    a \equiv b \pmod{\tfrac{m}{c}}
+    a \equiv b \pmod{\tfrac{m}{d}}
 \]
 
 \subsection{Multiplikativní inverze}
 
-V $\Z_m$ existuje multiplikativní inverze k $a$ právě tehdy, když $\gcd(a,m)=1$, a lze najít pomocí EEA, případně Malou Fermatovou/Eulerovou větou.
+V $\Z_m$ existuje multiplikativní inverze k $a$ právě tehdy, když $\gcd(a,m)=1$, a lze najít pomocí EEA, případně Malou Fermatovou nebo Eulerovou větou.
 
 \subsection{Extended Euclidean algorithm}
 
@@ -118,11 +118,11 @@ Pokud jsou $m \in \N$ a $a \in \Z_m$ nesoudělné, pak $a^{\varphi(m)-1}$ je mul
 
 \subsection{Malá Fermatova věta}
 
-Jedná se o speciální případ Eulerovy věty. Pokud jsou prvočíslo $p$ a $a \in \mathbb N$ nesoudělná (tedy $p \nmid a$), potom platí kongruence:
+Jedná se o speciální případ Eulerovy věty. Pokud jsou prvočíslo $p$ a $a \in \mathbb N$ nesoudělné ($p \nmid a$), potom platí kongruence:
 
 \[
-    \begin{array}{rl}
-        a^{p-1}                                               & \equiv 1 \pmod{p}     \\
-        \text{a pro $a\in \Z_p\setminus\{0\}$:} \quad a^{p-2} & \equiv a^{-1} \pmod p
+    \begin{array}{rll}
+        a^{p-1}                                               & \equiv 1 & \pmod{p}     \\
+        \text{a pro $a\in \Z_p\setminus\{0\}$:} \quad a^{p-2} & \equiv a^{-1} & \pmod p
     \end{array}
 \]
