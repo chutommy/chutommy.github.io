@@ -14,8 +14,7 @@
 \usepackage{titling}
 \usepackage{stmaryrd}
 
-\usepackage[a4paper, total={145mm,257mm}]{geometry}
-\setlength{\droptitle}{-3em}
+\usepackage[a4paper, total={150mm,257mm}]{geometry}
 \pagenumbering{gobble}
 
 \newcommand{\Nz}{\mathbb{N}_0}
@@ -47,11 +46,10 @@ Množinu stavů definujeme následovně:
     (D, t) \mid D \subseteq \U \mand t \in \Nz
     \big\},
 \]
-kde $D$ odpovídá osobám/baterce, které jsou v čase $t$ u domku.
-Při takovém kódování se ve všech stavech $(D, t)$ na kraji lesa nachází příslušný doplněk:~$\U \smallsetminus D$.
+kde $D$ odpovídá osobám a baterce, které jsou v čase $t$ u domku, a $\U \smallsetminus D$ jednoznačně určuje množinu osob na kraji lesa.
 
-Přesuny z kraje lesa k domku zachycuje množina $\A_\text{k}$
-a od domku na kraj lesa množina $\A_\text{od}$:
+Přemístění osob a baterky z kraje lesa k domku zachycuje množina $\A_\text{k}$
+a od domku $\A_\text{od}$:
 \[
     \begin{array}{llllll}
         \A_\text{k}
@@ -75,11 +73,11 @@ a od domku na kraj lesa množina $\A_\text{od}$:
 \]
 Množina akcí je $\A = \A_\text{k} \cup \A_\text{od}$.
 
-Úlohu formulujeme jako prohledávání stavového prostoru $(S, A)$ s počátečním stavem~$(\emptyset, 0)$ a množinou koncových stavů~$\{ (\U, t) \mid t \in \Nz \}$.
+Úlohu formulujeme jako prohledávání stavového prostoru $(S, A)$ s počátečním stavem~$(\emptyset, 0)$ -- nikdo nění u domku, a množinou koncových stavů~$\{ (\U, t) \mid t \in \Nz \}$ -- všichni jsou u domku.
 
 \subsection*{Řešení}
 
-Jedna z více možných cest splňující limit 30 minut je například:
+Cesta splňující limit 30 minut je například:
 \begin{center}
     \begin{tabular}{ r c c l c }
         $t$ & $D$                        &               & $Q$               & $\U \smallsetminus D$      \\
@@ -101,8 +99,10 @@ Existuje pouze jedna nejkratší cesta z vrcholu 0 do vrcholu 3, kterou je
 \(
 \Pmin: (0 \rightarrow 4 \rightarrow 7 \rightarrow 3).
 \)
+
 DFS zvolí nejkratší cestu, právě když se v prvním kroku rozhodne navštívit vrchol 4.
-V opačném případě nalezne cestu přes vrcholy $(0 \rightarrow \cdots \rightarrow 6 \rightarrow 5 \rightarrow 7 \rightarrow 3)$
+V opačném případě nalezne cestu přes vrcholy $(0 \rightarrow \cdots \rightarrow 6 \rightarrow 5 \rightarrow 7 \rightarrow 3)$,
+což je vždy cesta delší než $\Pmin$.
 
 Bez bližšího určení reprezentace grafu a implementace DFS, nelze určit, kterou cestu algoritmus zvolí. Může se například stát, že se zanoří $(0 \rightarrow 1 \rightarrow 6 \rightarrow 5 \rightarrow 7 \rightarrow 3)$. V takový moment algoritmus cestu do vrcholu 3 nalezne a následně skončí. Nevrátí však nejkratší cestu ($\lightning$).
 
