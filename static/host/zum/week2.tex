@@ -30,83 +30,83 @@
 \newcommand{\Pmin}{\text{P}_\text{min}}
 
 \begin{document}
-\maketitle
+    \maketitle
 
-\section*{Úloha 1}
+    \section*{Úloha 1}
 
-\subsection*{Stavový prostor}
+    \subsection*{Stavový prostor}
 
-Zavedeme množinu
-\(
-\U = \{ 1, 3, 5, 8, 12, b \},
-\)
-kde čísla představují osoby s~příslušnou dobou přesunu a~$b = 0$ baterku.
-Množinu stavů definujeme následovně:
-\[
-    \mS = \big\{
-    (D, t) \mid D \subseteq \U \mand t \in \Nz
-    \big\},
-\]
-kde $D$ odpovídá osobám a baterce, které jsou v~čase $t$ u~domku, a~$\U \smallsetminus D$ jednoznačně určuje množinu osob na~kraji lesa.
+    Zavedeme množinu
+    \(
+    \U = \{ 1, 3, 5, 8, 12, b \},
+    \)
+    kde čísla představují osoby s~příslušnou dobou přesunu a~$b = 0$ baterku.
+    Množinu stavů definujeme následovně:
+    \[
+        \mS = \big\{
+        (D, t) \mid D \subseteq \U \mand t \in \Nz
+        \big\},
+    \]
+    kde $D$ odpovídá osobám a baterce, které jsou v~čase $t$ u~domku, a~$\U \smallsetminus D$ jednoznačně určuje množinu osob na~kraji lesa.
 
-Přemístění osob a baterky z~kraje lesa k~domku zachycuje množina $\A_\text{k}$
-a od domku $\A_\text{od}$:
-\[
-    \begin{array}{llllll}
-        \A_\text{k}
-         & = \Big\{
-        \big\{ (D, t), (D {\color{blue} \;\cup\; Q}, t + \max Q) \big\}
-         & \mid
-         & (D, t) \in \mS \mand \# Q \in \{2, 3\}
-        \mand b \in Q \subseteq  {\color{blue} \U\smallsetminus D}
-         & \Big\}
+    Přemístění osob a baterky z~kraje lesa k~domku zachycuje množina $\A_\text{k}$
+    a od domku $\A_\text{od}$:
+    \[
+        \begin{array}{llllll}
+            \A_\text{k}
+            & = \Big\{
+            \big\{ (D, t), (D {\color{blue} \;\cup\; Q}, t + \max Q) \big\}
+            & \mid
+            & (D, t) \in \mS \mand \# Q \in \{2, 3\}
+            \mand b \in Q \subseteq  {\color{blue} \U\smallsetminus D}
+            & \Big\}
 
-        \\[3mm]
+            \\[3mm]
 
-        \A_\text{od}
-         & = \Big\{
-        \big\{ (D, t), (D {\color{blue} \;\smallsetminus\; Q}, t + \max Q) \big\}
-         & \mid
-         & (D, t) \in \mS \mand \# Q \in \{2, 3\}
-        \mand b \in Q \subseteq {\color{blue} D}
-         & \Big\}
-    \end{array}
-\]
-Množina akcí je $\A = \A_\text{k} \cup \A_\text{od}$.
+            \A_\text{od}
+            & = \Big\{
+            \big\{ (D, t), (D {\color{blue} \;\smallsetminus\; Q}, t + \max Q) \big\}
+            & \mid
+            & (D, t) \in \mS \mand \# Q \in \{2, 3\}
+            \mand b \in Q \subseteq {\color{blue} D}
+            & \Big\}
+        \end{array}
+    \]
+    Množina akcí je $\A = \A_\text{k} \cup \A_\text{od}$.
 
-Úlohu formulujeme jako prohledávání stavového prostoru $(S, A)$ s~počátečním stavem~$(\emptyset, 0)$ -- nikdo není u~domku, a množinou koncových stavů~$\{ (\U, t) \mid t \in \Nz \}$ -- všichni jsou u~domku.
+    Úlohu formulujeme jako prohledávání stavového prostoru $(S, A)$ s~počátečním stavem~$(\emptyset, 0)$ -- nikdo není u~domku, a množinou koncových stavů~$\{ (\U, t) \mid t \in \Nz \}$ -- všichni jsou u~domku.
 
-\subsection*{Řešení}
+    \subsection*{Řešení}
 
-Cesta splňující limit 30 minut je například:
-{\def\arraystretch{1.2}
-\begin{center}
-    \begin{tabular}
+    Cesta splňující limit 30 minut je například:
+    \begin{center}
+    { \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}
         { r !{\color{lightgray}\vrule} c !{\color{lightgray}\vrule} r l !{\color{lightgray}\vrule} c }
-        $t$ & $D$                        &               & $Q$               & $\U \smallsetminus D$      \\
-        \hline
-        0   & $\emptyset$                & $\leftarrow$  & $\{1,3, \myb\}$   & $\{1, 3, 5, 8, 12, \myb\}$ \\[2mm]
-        3   & $\{1, 3, \myb\}$           & $\rightarrow$ & $\{1, \myb\}$     & $\{5, 8, 12\}$             \\[2mm]
-        4   & $\{3\}$                    & $\leftarrow$  & $\{8, 12, \myb\}$ & $\{1, 5, 8, 12, \myb\}$    \\[2mm]
-        16  & $\{3, 8, 12, \myb\}$       & $\rightarrow$ & $\{3, \myb\}$     & $\{1, 5\}$                 \\[2mm]
-        19  & $\{8, 12\}$                & $\leftarrow$  & $\{1, 5, \myb\}$  & $\{1, 3, 5, \myb\}$        \\[2mm]
-        24  & $\{1, 5, 8, 12, \myb\}$    & $\rightarrow$ & $\{1, \myb\}$     & $\{3\}$                    \\[2mm]
-        25  & $\{5, 8, 12\}$             & $\leftarrow$  & $\{1,3, \myb\}$   & $\{1, 3, \myb\}$           \\[2mm]
-        28  & $\{1, 3, 5, 8, 12, \myb\}$ &               &                   & $\emptyset$                \\[2mm]
-    \end{tabular}
-\end{center}}
+            $t$ & $D$                        &               & $Q$               & $\U \smallsetminus D$      \\
+            \hline
+            0   & $\emptyset$                & $\leftarrow$  & $\{1,3, \myb\}$   & $\{1, 3, 5, 8, 12, \myb\}$ \\[2mm]
+            3   & $\{1, 3, \myb\}$           & $\rightarrow$ & $\{1, \myb\}$     & $\{5, 8, 12\}$             \\[2mm]
+            4   & $\{3\}$                    & $\leftarrow$  & $\{8, 12, \myb\}$ & $\{1, 5, 8, 12, \myb\}$    \\[2mm]
+            16  & $\{3, 8, 12, \myb\}$       & $\rightarrow$ & $\{3, \myb\}$     & $\{1, 5\}$                 \\[2mm]
+            19  & $\{8, 12\}$                & $\leftarrow$  & $\{1, 5, \myb\}$  & $\{1, 3, 5, \myb\}$        \\[2mm]
+            24  & $\{1, 5, 8, 12, \myb\}$    & $\rightarrow$ & $\{1, \myb\}$     & $\{3\}$                    \\[2mm]
+            25  & $\{5, 8, 12\}$             & $\leftarrow$  & $\{1,3, \myb\}$   & $\{1, 3, \myb\}$           \\[2mm]
+            28  & $\{1, 3, 5, 8, 12, \myb\}$ &               &                   & $\emptyset$                \\[2mm]
+        \end{tabular}}
+    \end{center}
 
-\section*{Úloha 2}
+    \section*{Úloha 2}
 
-Existuje pouze jedna nejkratší cesta z~vrcholu 0 do vrcholu 3, kterou je
-\(
-\Pmin: (0 \rightarrow 4 \rightarrow 7 \rightarrow 3).
-\)
+    Existuje pouze jedna nejkratší cesta z~vrcholu 0 do vrcholu 3, kterou je
+    \(
+    \Pmin: (0 \rightarrow 4 \rightarrow 7 \rightarrow 3).
+    \)
 
-DFS zvolí nejkratší cestu, právě když se v~prvním kroku rozhodne navštívit vrchol 4.
-V~opačném případě nalezne cestu přes vrcholy $(0 \rightarrow \cdots \rightarrow 6 \rightarrow 5 \rightarrow 7 \rightarrow 3)$,
-což je vždy cesta delší než $\Pmin$.
+    DFS zvolí nejkratší cestu, právě když se v~prvním kroku rozhodne navštívit vrchol 4.
+    V~opačném případě nalezne cestu přes vrcholy $(0 \rightarrow \cdots \rightarrow 6 \rightarrow 5 \rightarrow 7 \rightarrow 3)$,
+    což je vždy cesta delší než $\Pmin$.
 
-Bez bližší specifikace implementace DFS, nelze určit, kterou cestu algoritmus zvolí. Může se například stát, že se zanoří $(0 \rightarrow 1 \rightarrow 6 \rightarrow 5 \rightarrow 7 \rightarrow 3)$. V~takový moment algoritmus cestu do vrcholu 3 nalezne a následně skončí. Nevrátí však nejkratší cestu ($\lightning$).
+    Bez bližší specifikace implementace DFS, nelze určit, kterou cestu algoritmus zvolí. Může se například stát, že se zanoří $(0 \rightarrow 1 \rightarrow 6 \rightarrow 5 \rightarrow 7 \rightarrow 3)$. V~takový moment algoritmus cestu do vrcholu 3 nalezne a následně skončí. Nevrátí však nejkratší cestu ($\lightning$).
 
 \end{document}
