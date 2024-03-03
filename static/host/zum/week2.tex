@@ -49,8 +49,8 @@
     \]
     kde $D$ odpovídá osobám a baterce, které jsou v~čase $t$ u~domku, a~$\U \smallsetminus D$ jednoznačně určuje množinu osob na~kraji lesa.
 
-    Přemístění osob a baterky z~kraje lesa k~domku zachycuje množina $\A_\text{k}$
-    a od domku $\A_\text{od}$:
+    Přemístění osob z~kraje lesa k~domku zachycuje množina $\A_\text{k}$
+    a v opačném směru množina $\A_\text{od}$:
     \[
         \begin{array}{llllll}
             \A_\text{k}
@@ -103,10 +103,10 @@
     \Pmin: (0 \rightarrow 4 \rightarrow 7 \rightarrow 3).
     \)
 
-    DFS zvolí nejkratší cestu, právě když se v~prvním kroku rozhodne navštívit vrchol 4.
+    DFS zvolí nejkratší cestu, právě když se v~prvním kroku rozhodne navštívit vrchol~4.
     V~opačném případě nalezne cestu přes vrcholy $(0 \rightarrow \cdots \rightarrow 6 \rightarrow 5 \rightarrow 7 \rightarrow 3)$,
     což je vždy cesta delší než $\Pmin$.
 
-    Bez bližší specifikace implementace DFS, nelze určit, kterou cestu algoritmus zvolí. Může se například stát, že se zanoří $(0 \rightarrow 1 \rightarrow 6 \rightarrow 5 \rightarrow 7 \rightarrow 3)$. V~takový moment algoritmus cestu do vrcholu 3 nalezne a následně skončí. Nevrátí však nejkratší cestu ($\lightning$).
+    Bez bližší specifikace implementace DFS, nelze určit, kterou cestu algoritmus zvolí. Může se například stát, že se zanoří $(0 \rightarrow 1 \rightarrow 6 \rightarrow 5 \rightarrow 7 \rightarrow 3)$. V~takový moment algoritmus cestu do vrcholu~3 nalezne a následně skončí. Nevrátí však nejkratší cestu ($\lightning$).
 
 \end{document}
