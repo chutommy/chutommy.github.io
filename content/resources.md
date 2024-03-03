@@ -9,8 +9,6 @@ hideMeta: true
 
 #### Machine Learning
 * [BI-ML: Personal Textbook](/host/ml/textbook/ml-textbook.pdf)
-* Annotated slides:
-[`1`](/host/ml/annotations/BI-ML2-01-cs-slides_annotated.pdf)
 * [Countries by Life Expectancy (Regression)](/host/ml/projects/life_expectancy.html)
 * [Titanic Survivors (Classifier)](/host/ml/projects/titanic.html)
 
