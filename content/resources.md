@@ -35,4 +35,5 @@ hideMeta: true
 [`5`](/host/ag/ag05.pdf)
 
 #### Cryptography and Security
-* [BI-KAB: Personal Handbook](/host/kab/kab-handbook.pdf)
+* [Modular Arithmetic Cheatsheet](/host/kab/kab-cheatsheet.pdf)
+* [Enumerated English Alphabet](/host/kab/alphabet.png)

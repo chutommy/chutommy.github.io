@@ -1,3 +1,34 @@
+\documentclass[a4paper]{article}
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[titles]{tocloft}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={190mm,270mm},
+}
+
+\title{BI-KAB Handbook}
+\author{Tommy Chu}
+\date{}
+
+\pagenumbering{gobble}
+\renewcommand{\cftdot}{}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\lcm}{\operatorname{lcm}}
+
+\begin{document}
+\twocolumn
+
 \section{Opakování teorie čísel}
 
 \subsection{Základní pojmy}
@@ -122,7 +153,9 @@ Jedná se o speciální případ Eulerovy věty. Pokud jsou prvočíslo $p$ a $a
 
 \[
     \begin{array}{rll}
-        a^{p-1}                                               & \equiv 1 & \pmod{p}     \\
+        a^{p-1}                                               & \equiv 1      & \pmod{p} \\
         \text{a pro $a\in \Z_p\setminus\{0\}$:} \quad a^{p-2} & \equiv a^{-1} & \pmod p
     \end{array}
 \]
+
+\end{document}
