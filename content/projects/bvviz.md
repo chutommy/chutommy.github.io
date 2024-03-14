@@ -2,6 +2,7 @@
 title: "Project BVVIZ - Visualizing a quantum protocol"
 description: "Simulation and visualization of the Bernstein-Vazirani quantum protocol"
 date: "2023-04-29T08:14:29+02:00"
+weight: 2
 
 hideMeta: false
 showPostNavLinks: false

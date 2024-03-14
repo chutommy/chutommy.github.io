@@ -2,6 +2,7 @@
 title: "Project Overseer - Surveillance in the 21st Century"
 description: "George Orwell's Underappreciated Crusade"
 date: "2019-04-11T16:22:02+02:00"
+weight: 1
 
 hideMeta: false
 showPostNavLinks: false
