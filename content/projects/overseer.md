@@ -17,7 +17,7 @@ cover:
   image: "/projects/overseer/processed/08.png"
 ---
 
-The Overseer is a year-long project undertaken in honor of [George Orwell](https://en.wikipedia.org/wiki/George_Orwell) and his mission to warn humanity about the dangers of surveillance. In his book [1984](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), he laid the groudwork for omnipresent government surveillance and mass global-scope manipulation. The Overseer project aims to convey the message through an art work featuring a disturbing surveillance.
+Project Overseer is a year-long project undertaken in honor of [George Orwell](https://en.wikipedia.org/wiki/George_Orwell) and his mission to warn humanity about the dangers of surveillance. In his book [1984](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), he laid the groudwork for omnipresent government surveillance and mass global-scope manipulation. The Overseer project aims to convey the message through an art work featuring a disturbing surveillance.
 
 {{< figure src="/projects/overseer/project/processed/06.png" caption="Conceptual design drafts for the enclosure" >}}
 
