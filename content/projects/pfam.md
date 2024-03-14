@@ -13,7 +13,7 @@ disableHLJS: false
 disableAnchoredHeadings: true
 ---
 
-This scientific project develops a robust model for classifying protein sequences into the most common protein families found in the [UniProt Knowledgebase](https://www.uniprot.org/uniprotkb). The study employs and compares various machine learning techniques, such as k-nearest neighbors, decision trees, and random forests.
+This scientific project develops a robust model for classifying protein sequences into the most common protein families found in the UniProt Knowledgebase. The study employs and compares various machine learning techniques, such as k-nearest neighbors, decision trees, and random forests.
 
 The comprehensive analysis and detailed implementation can be accessed through the following link:
 [Protein Family Classification](/resources/viz/pfam-classification.html).
