@@ -1,7 +1,7 @@
 baseURL: https://chutommy.com/
 languageCode: en-us
 title: Tommy Chu
-theme: PaperMod
+theme: [hugo-redirect, PaperMod]
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
