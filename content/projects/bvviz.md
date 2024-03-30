@@ -112,4 +112,4 @@ The project was designed and developed in a modular manner, which makes the proj
 
 ### Try it yourself
 
-Feel free to experiment with BVVIZ first hand via a web app hosted by Streamlit at **[bernstein-vazirani.streamlit.app](https://bernstein-vazirani.streamlit.app/)**.
+Feel free to experiment with BVVIZ first hand. The source code is available at **[github.com/chutommy/bvviz](https://github.com/chutommy/bvviz/)**.
