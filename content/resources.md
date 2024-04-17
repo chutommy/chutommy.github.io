@@ -14,7 +14,6 @@ hideMeta: true
 
 #### Probability and Statistics
 * [Natural Selection (Humerus Analysis)](/resources/pst/analysis.html)
-* [Normal Distribution](/resources/pst/norm.html)
 
 #### Data Analysis
 * [Protein Family Classification](/resources/viz/pfam-classification.html)
@@ -37,3 +36,7 @@ hideMeta: true
 #### Cryptography and Security
 * [Modular Arithmetic Cheatsheet](/resources/kab/kab-cheatsheet.pdf)
 * [Enumerated English Alphabet](/resources/kab/alphabet.png)
+
+#### Miscellaneous
+* [Normal Distribution](/resources/pst/norm.html)
+* [Caffeine Levels Over Time](/resources/misc/caffeine_levels.html)

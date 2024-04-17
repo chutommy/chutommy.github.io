@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caffeine Levels Over Time</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+    <div id="plot-container" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+
+    <script>
+        function calculateCaffeineLevel(caffeineAmount, halfLife, time) {
+            return caffeineAmount * Math.pow(0.5, (time / halfLife));
+        }
+
+        function generateCaffeineLevels(caffeineAmount, halfLife) {
+            var hours = Array.from({ length: 25 }, (_, i) => i);
+            var caffeineLevels = hours.map(hour => calculateCaffeineLevel(caffeineAmount, halfLife, hour));
+            return { hours: hours, caffeineLevels: caffeineLevels };
+        }
+
+        function plotCaffeineLevels(caffeineAmount, halfLife) {
+            var data = generateCaffeineLevels(caffeineAmount, halfLife);
+            const titlesize = 24,
+                labelsize = 20,
+                ticksize = 18,
+                legendsize = 20,
+                linewidth = 3.6,
+                markersize = 11;
+
+            var trace = {
+                x: data.hours,
+                y: data.caffeineLevels,
+                mode: 'lines+markers',
+                name: 'Caffeine Levels',
+                line: { width: linewidth },
+                marker: { size: markersize }
+            };
+
+            var layout = {
+                title: { text: 'Caffeine Levels Over Time', font: { size: titlesize } },
+                xaxis: { title: { text: 'Time (hours)', font: { size: labelsize } }, fixedrange: true },
+                yaxis: { title: { text: 'Caffeine Level (mg)', font: { size: labelsize } }, fixedrange: true },
+                height: 600,
+                width: 1000,
+                hovermode: 'compare',
+            };
+
+            Plotly.newPlot('plot-container', [trace], layout);
+        }
+
+        var caffeineAmount = 200;
+        var halfLife = 5;
+        plotCaffeineLevels(caffeineAmount, halfLife);
+    </script>
+</body>
+
+</html>
