@@ -1,7 +1,7 @@
 ---
 title: "Protein family classification with traditional ML methods"
 date: "2024-01-14T13:08:38+01:00"
-weight: 3
+weight: 98
 
 hideMeta: false
 showPostNavLinks: false
