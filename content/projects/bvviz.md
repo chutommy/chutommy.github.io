@@ -1,6 +1,6 @@
 ---
-title: "Project BVVIZ - Visualizing a quantum protocol"
-description: "Simulation and visualization of the Bernstein-Vazirani quantum protocol"
+title: "Analysis of Bernstein-Vazirani quantum protocol"
+description: "Project BVVIZ - Simulation and visualization of the Bernstein-Vazirani quantum protocol"
 date: "2023-04-29T08:14:29+02:00"
 weight: 99
 
@@ -20,7 +20,7 @@ math: true
 #  image: "<image path/url>"
 ---
 
-Project BVVIZ is a web app providing a user-friendly playground for running noisy quantum simulations and visualizing the Bernstein-Vazirani quantum algorithm.
+Project BVVIZ is a GUI tool that provides a user-friendly playground for running noisy quantum simulations and visualizing the Bernstein-Vazirani quantum algorithm.
 
 {{< figure src="/projects/bvviz/img1.png" align="center" width=600 caption="source: bernstein-vazirani.streamlit.app" >}}
 
