@@ -12,6 +12,9 @@ showToc: false
 tocOpen: false
 disableHLJS: false
 disableAnchoredHeadings: true
+
+cover:
+  image: "/projects/humerus/cover.png"
 ---
 
 ## Introduction

@@ -14,14 +14,14 @@ disableHLJS: false
 disableAnchoredHeadings: true
 
 cover:
-  image: "/projects/overseer/processed/08.png"
+  image: "/projects/overseer/cover.png"
 ---
 
 Project Overseer is a year-long project undertaken in honor of [George Orwell](https://en.wikipedia.org/wiki/George_Orwell) and his mission to warn humanity about the dangers of surveillance. In his book [1984](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), he laid the groudwork for omnipresent government surveillance and mass global-scope manipulation. The Overseer project aims to convey the message through an art work featuring a disturbing surveillance.
 
-{{< figure src="/projects/overseer/project/processed/06.png" caption="Conceptual design drafts for the enclosure" >}}
+{{< figure src="/projects/overseer/processed/06.png" caption="Conceptual design drafts for the enclosure" >}}
 
-{{< figure src="/projects/overseer/project/processed/09.png" >}}
+{{< figure src="/projects/overseer/processed/09.png" >}}
 
 > {{< collapse summary="Expand **Introduction**" >}}
 
@@ -71,17 +71,17 @@ It's worth noting that not every person has the same head size, which could pote
 
 A crucial step was to determine how much the servo motors should rotate based on the coordinates of the target. This presented a significant challenge during the software development process, since only the number of degrees of the camera movement was computationally attainable.
 
-{{< figure src="/projects/overseer/project/processed/01.png" caption="Initial sketches of servo-motor motions and arm movements, angle calculations" >}}
+{{< figure src="/projects/overseer/processed/01.png" caption="Initial sketches of servo-motor motions and arm movements, angle calculations" >}}
 
 This presented a complex problem where a triangle with vertices representing the camera, the target, and the movable joint needed to be synchronized. Having only two pieces of information: one angle, and one length, this was geometrically impossible to calculate.
 
 Ultimately, to solve this challenge the motor was positioned in a way that the camera's rotating axis aligned with it. This, in practice, meant that the axes of both motors had to intersect precisely at the camera's lens. While this resolved the data deficiency for calculating arm movements, it added complexity to the construction of the device.
 
-{{< figure src="/projects/overseer/project/processed/02.png" caption="Initial drafts of the casing design" >}}
+{{< figure src="/projects/overseer/processed/02.png" caption="Initial drafts of the casing design" >}}
 
 As the project evolved, additional features were incorporated, such as target tolerance adjustments, the ability to draw rectangles around detected targets, and automated arm centering both before and after extended periods of inactivity.
 
-{{< figure src="/projects/overseer/project/processed/03.png" caption="Final concept - dimension calculations and assembly planning" >}}
+{{< figure src="/projects/overseer/processed/03.png" caption="Final concept - dimension calculations and assembly planning" >}}
 
 ### CPU compatibility
 
@@ -91,17 +91,17 @@ This choice, however, came with a trade-off as it was considerably larger. Conse
 
 ## Assemble
 
-{{< figure src="/projects/overseer/project/processed/04.png" caption="Hand-cutting particleboard and cardboard for arms and casing" >}}
+{{< figure src="/projects/overseer/processed/04.png" caption="Hand-cutting particleboard and cardboard for arms and casing" >}}
 
 To assemble the Overseer robot, I chose lightweight particleboard for the frame, prioritizing algorithm speed to ensure smooth operation. However, the wood proved to be weaker and more prone to splitting than I'd anticipated, requiring additional reinforcement for some parts.
 
 For the casing, I used more suitable materials like cardboard to cover the electrical components and thin, sturdy laminated boards for the technical enclosure. I aimed for a consistent and unobtrusive color scheme to convey my message subtly, showing that not everything needs to be flashy or noticeable.
 
-{{< figure src="/projects/overseer/project/processed/05.png" caption="Assembling the main components of the arm" >}}
+{{< figure src="/projects/overseer/processed/05.png" caption="Assembling the main components of the arm" >}}
 
 I faced a few unexpected challenges such as a nonoptimal cable-management, which made surrounding wires too loose and got them tangled in the arms and joints. I solved this by using plastic zip ties to secure the wires along the arms.
 
-{{< figure src="/projects/overseer/project/processed/07.png" caption="Complete assembly of the Overseer" >}}
+{{< figure src="/projects/overseer/processed/07.png" caption="Complete assembly of the Overseer" >}}
 
 {{< youtube egSJn1_CyDM >}}
 
@@ -115,7 +115,7 @@ During testing, I also observed that the processor's average temperature sat aro
 
 ## Conclusion
 
-{{< figure src="/projects/overseer/project/processed/08.png" caption="Complete assembly of the Overseer" >}}
+{{< figure src="/projects/overseer/processed/08.png" caption="Complete assembly of the Overseer" >}}
 
 I consider my final project to be a success overall. I set out to explore the theme of surveillance, following in the footsteps of George Orwell, who masterfully delved into it in his iconic work 1984 and served as a significant source of inspiration for my own project. My creation operates as intended.
 
