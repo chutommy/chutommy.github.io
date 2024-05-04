@@ -56,12 +56,12 @@ params:
   assets:
     disableHLJS: false
     disableFingerprinting: false
-    favicon: site/icon.png
+    # favicon: site/icon.png
 
   label:
     text: Tommy Chu
-    icon: site/icon.png
-    iconHeight: 32
+    # icon: site/icon.png
+    # iconHeight: 32
 
   profileMode:
     enabled: true
