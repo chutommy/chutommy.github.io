@@ -13,7 +13,7 @@ disableHLJS: false
 disableAnchoredHeadings: true
 
 cover:
-  image: "/projects/ml-textbook/cover.png"
+  image: "/projects/ml-textbook/cover2.png"
 ---
 
 I wrote this textbook in preparation for the machine learning course exam. It is an overview of key concepts that I personally found important or interesting. For a deeper understanding of the topic, I recommend the following literature:

@@ -14,7 +14,7 @@ disableHLJS: false
 disableAnchoredHeadings: true
 
 cover:
-  image: "/projects/overseer/cover.png"
+  image: "/projects/overseer/cover2.png"
 ---
 
 Project Overseer is a year-long project undertaken in honor of [George Orwell](https://en.wikipedia.org/wiki/George_Orwell) and his mission to warn humanity about the dangers of surveillance. In his book [1984](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), he laid the groudwork for omnipresent government surveillance and mass global-scope manipulation. The Overseer project aims to convey the message through an art work featuring a disturbing surveillance.

@@ -14,7 +14,7 @@ disableHLJS: false
 disableAnchoredHeadings: true
 
 cover:
-  image: "/projects/humerus/cover.png"
+  image: "/projects/humerus/cover2.png"
 ---
 
 ## Introduction

@@ -17,7 +17,7 @@ math: true
 #{{< math.inline >}}\(  \){{</ math.inline >}}
 
 cover:
-  image: "/projects/bvviz/cover.png"
+  image: "/projects/bvviz/cover2.png"
 ---
 
 Project BVVIZ is a GUI tool that provides a user-friendly playground for running noisy quantum simulations and visualizing the Bernstein-Vazirani quantum algorithm.

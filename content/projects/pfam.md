@@ -13,7 +13,7 @@ disableHLJS: false
 disableAnchoredHeadings: true
 
 cover:
-  image: "/projects/pfam/cover.png"
+  image: "/projects/pfam/cover2.png"
 ---
 
 This scientific project develops an interpretable model for classifying protein sequences into the most common protein families found in the UniProt Knowledgebase. The study employs and compares various machine learning techniques, such as k-nearest neighbors, decision trees, and random forests.
