@@ -1,7 +1,7 @@
 ---
 title: "Personal Machine Learning Textbook [cs]"
-date: "2023-06-1T13:08:38+01:00"
-weight: 97
+date: "2024-01-6T13:08:38+01:00"
+weight: 98
 
 hideMeta: false
 showPostNavLinks: false
