@@ -1,7 +1,7 @@
 ---
-title: "Personal Machine Learning Textbook [cs]"
+title: "Personal Machine Learning Textbook (in Czech)"
 date: "2024-01-6T13:08:38+01:00"
-weight: 98
+weight: 97
 
 hideMeta: false
 showPostNavLinks: false

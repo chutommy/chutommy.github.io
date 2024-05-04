@@ -13,7 +13,8 @@ hideMeta: true
 * [Titanic Survivors (Classifier)](/resources/ml/projects/titanic.html)
 
 #### Probability and Statistics
-* [Natural Selection (Humerus Analysis)](/resources/pst/analysis.html)
+* [Natural Selection (Humerus Analysis) [cs]](/resources/pst/analysis.html)
+* [Natural Selection (Humerus Analysis) [en]](/resources/pst/analysis-en.html)
 
 #### Data Analysis
 * [Protein Family Classification](/resources/viz/pfam-classification.html)
