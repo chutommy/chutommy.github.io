@@ -1,5 +1,5 @@
 ---
-title: "Introductory ML textbook (in Czech)"
+title: "Personal ML textbook (in Czech)"
 date: "2024-01-6T13:08:38+01:00"
 weight: 97
 
