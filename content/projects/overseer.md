@@ -123,7 +123,7 @@ The goal has never been to disturb viewers. Rather, it seeks to momentarily nudg
 
 {{< youtube aPQUcmxKYXk >}}
 
-### Components used
+### Used components
 
 #### 2x Servo Motors Waveshare MG996R
 torque: 9kg/cm (4.8V), 11kg/cm (6V),
