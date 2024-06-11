@@ -7,6 +7,9 @@ showBreadCrumbs: false
 hideMeta: true
 ---
 
+#### TEMPORARY
+* [BI-PRS: Project 3](/resources/prs/bi-prs-project-03.html)
+
 #### Machine Learning
 * [BI-ML: Personal Textbook](/resources/ml/textbook/ml-textbook.pdf)
 * [Countries by Life Expectancy (Regression)](/resources/ml/projects/life_expectancy.html)
