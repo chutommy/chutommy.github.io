@@ -20,7 +20,7 @@ cover:
   image: "/projects/bvviz/cover2.png"
 ---
 
-Project BVVIZ is a GUI tool that provides a user-friendly playground for running noisy quantum simulations and visualizing the Bernstein-Vazirani quantum algorithm.
+Project BVVIZ is a tool that provides a user-friendly playground for running noisy quantum simulations and visualizing the Bernstein-Vazirani quantum algorithm.
 
 {{< figure src="/projects/bvviz/img1.png" align="center" width=600 caption="source: bernstein-vazirani.streamlit.app" >}}
 
@@ -34,7 +34,7 @@ uses many properties of quantum circuits leveraged in this protocol.
 
 The Bernstein-Vazirani problem is a [promise problem](https://en.wikipedia.org/wiki/Promise_problem). It involves a black-box function
 {{< math.inline >}}\( f_s \colon \{0, 1\}^n \rightarrow \{0, 1\} \){{</ math.inline >}},
-which takes a bit string as input and returns either _0_ or _1_. The function guarantees to return the dot product between _x_ and a secret string {{< math.inline >}}\( s \in \{ 0, 1 \}^n \){{</ math.inline >}} modulo 2:
+which takes a bit string as input and returns either 0 or 1. The function guarantees to return the dot product between _x_ and a secret string {{< math.inline >}}\( s \in \{ 0, 1 \}^n \){{</ math.inline >}} modulo 2:
 
 $$ f_s(\{ x_0, x_1, ..., x_{(n-1)} \}) = x \cdot s $$
 $$ x \cdot s = x_0 s_0 \oplus x_1 s_1 \oplus ... \oplus x_{n-1} s_{n-1} $$
@@ -43,7 +43,7 @@ The objective is to determine the secret string _s_ of the function {{< math.inl
 
 ## Solution
 
-The project BVVIZ implements both classical and quantum solutions for the Bernstein-Vazirani algorithm. These solutions then are compared in terms of the number of queries made to the oracle function {{< math.inline >}}\( f_s \){{</ math.inline >}}, computational time, accuracy, and overall complexity.
+The project BVVIZ implements both classical and quantum solutions for the Bernstein-Vazirani algorithm. These solutions are compared in terms of the number of queries made to the oracle function {{< math.inline >}}\( f_s \){{</ math.inline >}}, computational time, accuracy, and overall complexity.
 
 {{< figure src="/projects/bvviz/oracle.png" align="center" title="The reversible circuit of the Bernstein-Vazirani oracle" caption="image source: Qiskit" >}}
 
@@ -63,7 +63,7 @@ The state ofter applying the quantum oracle function {{< math.inline >}}\( f_s \
 
 $$ H^{\otimes n} |0\rangle \otimes HX|0\rangle = \frac{1}{\sqrt{2^n}} \sum_{x=0}^{2^{n-1}} |x\rangle \otimes |-\rangle . $$
 
-The oracle function {{< math.inline >}}\( f_s \){{</ math.inline >}} flips each qubit {{< math.inline >}}\( q_i \){{</ math.inline >}} that satisfies {{< math.inline >}}\( f_s(bin(2^i)) = 1 \){{</ math.inline >}}, which changes the sign of these states. This is also known as [phase kickback](https://eduardsmetanin.github.io/PhaseKickback.pdf).
+The oracle function {{< math.inline >}}\( f_s \){{</ math.inline >}} flips each qubit {{< math.inline >}}\( q_i \){{</ math.inline >}} that satisfies {{< math.inline >}}\( f_s(\text{bin}(2^i)) = 1 \){{</ math.inline >}}, which changes the sign of these states. This is also known as [phase kickback](https://eduardsmetanin.github.io/PhaseKickback.pdf).
 
 Since all quantum gates are their own inverses, _n_ Hadamard gates are applied to obtain the final result:
 
@@ -73,26 +73,22 @@ $$ \frac{1}{\sqrt{2^n}} \sum_{x=0}^{2^{n-1}} (-1)^{s \cdot}  \xrightarrow{H^{\ot
 
 {{< figure src="/projects/bvviz/circuit.png" align="center" caption="An implementation of the Bernstein-Vazirani protocol for a secret string 101" width=550 >}}
 
-The project BVVIZ is a web application that allows users to run and visualize quantum simulations of the Bernstein-Vazirani protocol.
-
-The underlying problems of quantum technology are often misunderstood. This application guides users to understand both benefits and constraints of quantum computing.
+The underlying problems of quantum technology are often misunderstood. This tool guides users to understand both benefits and constraints of quantum computing.
 
 
 ### Quantum simulation
 
-Upon visiting the application, a preconfigured experiment is run by default. However, users have the freedom to customize the simulator device, including the backend system, number of shots, secret string, or their own noise and transpiler model. This allows users to gain full control over the quantum hardware that is being simulated to run the Bernstein-Vazirani experiment.
+BVVIZ allows the freedom to customize the simulator device, including the backend system, number of shots, secret string, or their own noise and transpiler model. This enables full control over the quantum hardware that is being simulated to run the Bernstein-Vazirani experiment.
 
 {{< figure src="/projects/bvviz/layout.png" align="center" caption="The quantum register mapping of a preconfigured Brooklyn system with sabre layout and stochastic routing" width=500 >}}
 
 ### Accuracy assessment
 
-As a result of the quantum simulation, metrics, plots, and charts are generated to help users understand the impact of the noisy quantum devices. Users are encouraged to take a closer look at the experimental settings, analyze the results, think about the statistics, and come up with independent conclusions and their own way of understanding limitations of quantum computing.
-
-Results are loaded with intertwined correlations and patterns that can lead to interesting insights and discoveries.
+As a result of the quantum simulation, metrics, plots, and charts are generated to help users understand the impact of the noisy quantum devices. It encourages to take a closer look at the experimental settings, analyze the results, think about the statistics, and come up with independent conclusions and their own way of understanding limitations of quantum computing.
 
 {{< figure src="/projects/bvviz/counts.png" align="center" caption="A count chart of an experiment with secret string 11001 and 1000 shots" width=540 >}}
 
-If users find the provided statistics inadequate or lacking, they are free to download the quantum circuit ([OpenQASM 2.0](https://en.wikipedia.org/wiki/OpenQASM)) and the measurements at the bottom of the BVVIZ page.
+If the provided statistics are inadequate or lacking, users are free to download the quantum circuit ([OpenQASM 2.0](https://en.wikipedia.org/wiki/OpenQASM)) and the measurements.
 
 ### Purpose
 
@@ -106,7 +102,7 @@ Project BVVIZ helps those who are new to quantum computation not only to learn a
 
 The simulation and visualization of the Bernstein-Vazirani protocol works properly and as expected. The application does a decent job of delivering the results.
 
-The project was designed and developed in a modular manner, which makes the project easily expandable. Additional integration of new metrics, statistics and plots would be pretty straightforward. With a few modifications, it could be adapted to simulate and visualize other quantum protocols such as Simon's, Deutsch-Jozsa's, and Grover's algorithms.
+The project was designed and developed with modularity in mind, allowing for easy expansion. Integrating new metrics, statistics, and plots can be done straightforwardly. With minor adjustments, it could also simulate and visualize other quantum protocols like Simon's, Deutsch-Jozsa's, and Grover's algorithms.
 
 {{< youtube LX07C1eFSJc >}}
 
