@@ -56,12 +56,9 @@ params:
   assets:
     disableHLJS: false
     disableFingerprinting: false
-    # favicon: site/icon.png
 
   label:
     text: Tommy Chu
-    # icon: site/icon.png
-    # iconHeight: 32
 
   profileMode:
     enabled: true
@@ -85,19 +82,9 @@ params:
 
 menu:
   main:
-#    - name: About
-#      url: about
-#      weight: 10
     - name: Projects
       url: projects
       weight: 20
-#    - name: Achievements
-#      url: achievements
-#      weight: 30
-
-#    - name: Search
-#      url: search
-#      weight: 210
 
 outputs:
   home:
