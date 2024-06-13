@@ -17,109 +17,70 @@ cover:
   image: "/projects/overseer/cover2.png"
 ---
 
-Project Overseer is a year-long project undertaken in honor of [George Orwell](https://en.wikipedia.org/wiki/George_Orwell) and his mission to warn humanity about the dangers of surveillance. In his book [1984](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), he laid the groudwork for omnipresent government surveillance and mass global-scope manipulation. The Overseer project aims to convey the message through an art work featuring a disturbing surveillance.
+Project Overseer is a year-long initiative honoring [George Orwell](https://en.wikipedia.org/wiki/George_Orwell) and his warning about the dangers of surveillance. Inspired by his book [1984](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), which describes a world under constant government watch, the project Overseer aims to highlight the threat of surveillance through a thought-provoking artwork.
 
 {{< figure src="/projects/overseer/processed/06.png" caption="Conceptual design drafts for the enclosure" >}}
 
-{{< figure src="/projects/overseer/processed/09.png" >}}
+<!-- {{< figure src="/projects/overseer/processed/09.png" >}} -->
 
-> {{< collapse summary="Expand **Introduction**" >}}
-
-## Introduction
-
-Every one of us leaves a digital footprint in today's world. Computers have seamlessly integrated into our daily lives, whether we're using online services, navigation tools, payment options, electronic wearables, or smart devices.
-
-Around 80 years ago, brilliant scientists and engineers of the 20th century introduced computers, reshaping the world beyond recognition. This happened to connect the entire globe, accelerate scientific advancements, automate numerous manual tasks, and propel healthcare to new heights. However, this transformation has also drastically affected our security. The spread of digital cameras, which offer the ability to 'peek into the past', has given birth to an entirely new industry.
-
-In recent decades, the number of cameras in public spaces has risen dramatically ([CCTVs](https://en.wikipedia.org/wiki/Closed-circuit_television)). These cameras are deployed for various purposes, with crime prevention being the most common. Managing the recordings from these cameras presents its own set of challenges. While there are legal limitations on how long such recordings can be retained and how they can be handled, practical control over them is often elusive due to restricted public access.
-
-Technology companies with massive user base have gathered a huge amount of data. Even those people who don't actively use these services still contribute data passively. This dense web of information enables to gain insights into society and open possibilities for potential mass manipulation.
-
-In essence, every individual who leaves behind even the tiniest digital trace is unknowingly part of a vast, shadowy industry. This industry churns billions of dollars annually, fueled by the data we generate. Free usage of these services comes at the cost of our personal information, which when combined with data from millions of other users, becomes the key to power and influence.
-
-{{</ collapse >}}
-
-> {{< collapse summary="Expand **Motivation**" >}}
-
-## Motivation
-
-When I was introduced to George Orwell's classic novel 1984 I couldn't help but notice similarities between the dystopian world of Big Brother and our own reality. I began to envision our world as a parallel to this nightmarish setting, particularly within the colossal corporations that seemed to echo [Orwell's Party](https://en.wikipedia.org/wiki/Political_geography_of_Nineteen_Eighty-Four). It's not so much the act of surveillance where the resemblance lies, but rather the immense power these entities wield.
-
-A tangible example of the influence held by these companies can be found in recent events, such as the notorious case [Facebook-Cambridge Analytica](https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal). The social media platform managed to amass personal data from millions of American citizens without their consent, crafting a model that helped them to effectively manipulate a substantial portion of the population through influential videos and news articles. In collaboration with Donald Trump's 2016 election campaign, they possessed a deep understanding of what resonated with voters and what information to feed them to shape the election outcome to their liking. In 2018, a former Cambridge Analytica employee disclosed that the data used by their analysts to construct this model was derived from leaked Facebook user data - a revelation marking the largest known data breach in history.
-
-We find ourselves as one of the first generations handling this form of manipulation, facing a challenge with no clear strategy for defense. Abandoning the services of large technology companies isn't a feasible solution, primarily due to the immense convenience they provide. Once again, I can't help but draw parallels between our situation and the citizen's of Orwell's society.
-
-The Overseer is to serve as a reminder to the audience that there are, at the very least, surveillance cameras from which they cannot escape.
-
-{{</ collapse >}}
-
-## Implementation
-
-To bring the project to life, it was needed to develop a software capable of efficiently controlling the robot arms and orchestrating the entire system's movements. This required several key functionalities.
+In this project, we create a robot that tracks faces in real-time. To bring this to life, we needed software capable of efficiently planning and controlling the robot's arm. This required several key functionalities.
 
 ### Software driver
 
-First and foremost, the software had to perform the following tasks:
+The program had to perform the following tasks:
 
-1. Capture frames from the camera.
-2. Identify all targets within the frames.
-3. Select the nearest target based on size.
+1. Capture a frame from the camera.
+2. Identify all faces within the frame.
+3. Select the closest face.
+4. Update the arm's position accordingly.
 
-It's worth noting that not every person has the same head size, which could potentially lead to errors in selecting more distant faces. However, I concluded that these discrepancies would be minimal. The primary aim of this function was to ensure that the algorithm consistently focused on a single object.
+### Setbacks
 
-### First setbacks
-
-A crucial step was to determine how much the servo motors should rotate based on the coordinates of the target. This presented a significant challenge during the software development process, since only the number of degrees of the camera movement was computationally attainable.
+One major challenge was determining the precise rotation needed for the servo motors based on the target's coordinates. Initially, the software could only calculate the degrees of camera movement, which was insufficient for precise motor control.
 
 {{< figure src="/projects/overseer/processed/01.png" caption="Initial sketches of servo-motor motions and arm movements, angle calculations" >}}
 
-This presented a complex problem where a triangle with vertices representing the camera, the target, and the movable joint needed to be synchronized. Having only two pieces of information: one angle, and one length, this was geometrically impossible to calculate.
+This problem required synchronizing a triangle formed by the camera, the target, and the movable joint. With only one angle and one length, it was geometrically impossible to make accurate calculations.
 
-Ultimately, to solve this challenge the motor was positioned in a way that the camera's rotating axis aligned with it. This, in practice, meant that the axes of both motors had to intersect precisely at the camera's lens. While this resolved the data deficiency for calculating arm movements, it added complexity to the construction of the device.
+To overcome this, we aligned the motor's axis with the camera's rotating axis, ensuring both intersected precisely at the camera's lens. While this alignment resolved the calculation issue, it added complexity to the device's construction.
 
 {{< figure src="/projects/overseer/processed/02.png" caption="Initial drafts of the casing design" >}}
 
-As the project evolved, additional features were incorporated, such as target tolerance adjustments, the ability to draw rectangles around detected targets, and automated arm centering both before and after extended periods of inactivity.
+As the project progressed, we added features like target tolerance adjustments, drawing rectangles around detected targets, and automated arm centering before and after periods of inactivity.
 
 {{< figure src="/projects/overseer/processed/03.png" caption="Final concept - dimension calculations and assembly planning" >}}
 
 ### CPU compatibility
 
-Everything was planned to be run on a [Raspberry Pi Zero W](https://www.raspberrypi.com/products/raspberry-pi-zero-w/), which was initially intended to fit inside the same enclosure as the camera. However, due to the decision to employ the [OpenCV4](https://opencv.org/) technology (v4.3.0) for facial recognition, which is only compatible with ARMv7+ processors, it was ultimately opted for the [Raspberry Pi 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) model with an ARMv8 CPU.
+Everything was initially planned to run on a [Raspberry Pi Zero W](https://www.raspberrypi.com/products/raspberry-pi-zero-w/), which was supposed to fit inside the same enclosure as the camera. However, we decided to use [OpenCV4](https://opencv.org/) technology (v4.3.0) for facial recognition, which requires ARMv7+ processors. Therefore, we switched to the [Raspberry Pi 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) with an ARMv8 CPU.
 
-This choice, however, came with a trade-off as it was considerably larger. Consequently, it was necessary to add another enclosure to the rear of the assembly. This adjustment also led to the abandonment of the original idea of mounting the camera as an arm on a board that could be hung on the wall.
+This choice had a downside since the Raspberry Pi 3B+ is much larger. We had to add another enclosure to the rear of the assembly, which also meant abandoning the original idea of mounting the camera as an arm on a board that could be hung on the wall.
 
-## Assemble
+## Assembling
 
 {{< figure src="/projects/overseer/processed/04.png" caption="Hand-cutting particleboard and cardboard for arms and casing" >}}
 
-To assemble the Overseer robot, I chose lightweight particleboard for the frame, prioritizing algorithm speed to ensure smooth operation. However, the wood proved to be weaker and more prone to splitting than I'd anticipated, requiring additional reinforcement for some parts.
+To build the Overseer robots, we used lightweight particleboard for the frames to prioritize fast algorithms for smooth operation. However, the wood proved weaker than expected, so we reinforced some parts.
 
-For the casing, I used more suitable materials like cardboard to cover the electrical components and thin, sturdy laminated boards for the technical enclosure. I aimed for a consistent and unobtrusive color scheme to convey my message subtly, showing that not everything needs to be flashy or noticeable.
+For casings, we opted for cardboard to cover electrical components and thin, sturdy laminated boards for technical enclosures. We chose a subtle color scheme to convey our message discreetly.
 
 {{< figure src="/projects/overseer/processed/05.png" caption="Assembling the main components of the arm" >}}
 
-I faced a few unexpected challenges such as a nonoptimal cable-management, which made surrounding wires too loose and got them tangled in the arms and joints. I solved this by using plastic zip ties to secure the wires along the arms.
+We encountered challenges with cable management, leading to loose wires tangling in the arms and joints. We resolved this by securing the wires with plastic zip ties along the arms.
 
 {{< figure src="/projects/overseer/processed/07.png" caption="Complete assembly of the Overseer" >}}
 
 {{< youtube egSJn1_CyDM >}}
 
-### Final touch
-
-In the final phase of my project, a critical step was testing and fine-tuning the configuration. I conducted experiments by adjusting various parameters, including the tolerance, and different facial patterns.
-
-Once I achieved the desired functionality, I had to reduce the frame rate and image resolution to optimize the device's speed. I encountered a significant challenge as the computer struggled to execute all necessary tasks swiftly for real-time performance. Consequently, I had to make compromises and lower the image quality, resulting in reliable recognition within a range of up to three meters.
-
-During testing, I also observed that the processor's average temperature sat around 80°C. While it could safely operate up to 85°C, I decided to add a fan as an extra precaution.
+In the final phase of our project, we focused on testing and refining our robot's configuration for optimal facial recognition. We adjusted parameters, optimized speed by lowering frame rates and image quality, and added a fan to manage processor temperature during testing.
 
 ## Conclusion
 
 {{< figure src="/projects/overseer/processed/08.png" caption="Complete assembly of the Overseer" >}}
 
-I consider my final project to be a success overall. I set out to explore the theme of surveillance, following in the footsteps of George Orwell, who masterfully delved into it in his iconic work 1984 and served as a significant source of inspiration for my own project. My creation operates as intended.
+In conclusion, our project has been a success. Inspired by George Orwell's insights in 1984, we aimed to explore the theme of surveillance. Our creation operates effectively as intended.
 
-The goal has never been to disturb viewers. Rather, it seeks to momentarily nudge them out of their comfort zones and offer a taste of unfiltered reality.
+Rather than aiming to disturb, our goal was to gently provoke thought and offer a glimpse into a different perspective on reality. We hope our project encourages reflection on the impacts of surveillance in today's world.
 
 {{< youtube aPQUcmxKYXk >}}
 
