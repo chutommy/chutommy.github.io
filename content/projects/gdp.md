@@ -1,8 +1,8 @@
 ---
-title: "Analysis of market price GDP per capita"
-description: "The statistical analysis of market price GDP per capita across European countries"
-date: "2024-06-11T13:08:38+01:00"
-weight: 98
+title: "Analysis of GDP per capita at market prices"
+description: "The statistical analysis of GDP per capita at market prices across European countries"
+# date: "2024-06-11T13:08:38+01:00"
+weight: 60
 
 hideMeta: false
 showPostNavLinks: false
@@ -30,4 +30,4 @@ In conclusion, the analysis highlights that earnings and employment are the most
 The comprehensive analysis is accessible through the following link:
 [Euro GDP Analysis](/resources/prs/eurostats-gdp.html)
 
-{{< figure src="/projects/gdp/preview.png" align="center" title="Analysis of market price GDP per capita across European countries" caption="nama_10_pc in Eurostats: Main GDP aggregates per capita" link="/resources/prs/eurostats-gdp.html" >}}
+{{< figure src="/projects/gdp/preview.png" align="center" title="Analysis of GDP per capita at market prices across European countries" caption="nama_10_pc in Eurostats: Main GDP aggregates per capita" link="/resources/prs/eurostats-gdp.html" >}}
