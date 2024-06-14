@@ -1,8 +1,8 @@
 ---
 title: "Statistical analysis of data on natural selection"
 description: "The statistical analysis of the effect of arm bone length on the survival of sparrows in winter storms"
-date: "2023-12-29T13:08:38+01:00"
-weight: 98
+# date: "2023-12-29T13:08:38+01:00"
+weight: 30
 
 hideMeta: false
 showPostNavLinks: false

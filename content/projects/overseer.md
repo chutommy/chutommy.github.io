@@ -1,8 +1,8 @@
 ---
 title: "Digital surveillance in the 21st Century"
 description: "Project Overseer - The George Orwell's crusade"
-date: "2019-04-11T16:22:02+02:00"
-weight: 100
+# date: "2019-04-11T16:22:02+02:00"
+weight: 50
 
 hideMeta: false
 showPostNavLinks: false

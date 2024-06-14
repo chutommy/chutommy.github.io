@@ -1,8 +1,8 @@
 ---
 title: "Analysis of Bernstein-Vazirani quantum protocol"
 description: "Project BVVIZ - Simulation and visualization of the Bernstein-Vazirani quantum protocol"
-date: "2023-04-29T08:14:29+02:00"
-weight: 99
+# date: "2023-04-29T08:14:29+02:00"
+weight: 40
 
 hideMeta: false
 showPostNavLinks: false
@@ -74,7 +74,6 @@ $$ \frac{1}{\sqrt{2^n}} \sum_{x=0}^{2^{n-1}} (-1)^{s \cdot}  \xrightarrow{H^{\ot
 {{< figure src="/projects/bvviz/circuit.png" align="center" caption="An implementation of the Bernstein-Vazirani protocol for a secret string 101" width=550 >}}
 
 The underlying problems of quantum technology are often misunderstood. This tool guides users to understand both benefits and constraints of quantum computing.
-
 
 ### Quantum simulation
 
