@@ -10,7 +10,7 @@ buildFuture: false
 buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
-paginate: 5
+paginate: 1000
 
 minify:
   disableXML: true
