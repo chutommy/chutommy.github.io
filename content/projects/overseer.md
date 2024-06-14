@@ -1,5 +1,5 @@
 ---
-title: "Digital surveillance in the 21st Century"
+title: "Orwellian digital surveillance with robotics"
 description: "Project Overseer - The George Orwell's crusade"
 # date: "2019-04-11T16:22:02+02:00"
 weight: 50
@@ -87,6 +87,7 @@ Rather than aiming to disturb, our goal was to gently provoke thought and offer 
 ### Used components
 
 #### 2x Servo Motors Waveshare MG996R
+
 torque: 9kg/cm (4.8V), 11kg/cm (6V),
 speed: 0.19s/60° (4.8V), 0.18s/60° (6V),
 rotation: 180°,
@@ -95,6 +96,7 @@ weight: 55g,
 dimensions: 40.7 × 19.7 × 42.9mm
 
 #### Raspberry Pi 3 Model B+
+
 cpu: 1.4GHz 64-bit quad-core ARM Cortex-A53,
 cpu architecture: ARMv8-A (64/32-bit),
 gpu: Broadcom VideoCore IV @ 250MHz,
@@ -103,6 +105,7 @@ weight: 45g,
 dimensions: 85.60 × 56.5 × 17mm
 
 #### Raspberry Pi Camera V2
+
 video FPS: 1080p30, 720p60,
 sensor: 8MP Sony IMX219 CCD,
 connector: CSI,
@@ -111,6 +114,7 @@ weight: 3g,
 dimensions: 25 × 20 × 9mm
 
 #### Raspberry Pi Fan with 30cm Cable
+
 consumption: 0.35W,
 power: 5V,
 reduced: 3V3,
@@ -118,6 +122,7 @@ noise: 22dBA (5V),
 dimensions: 35 x 35 x 10mm
 
 #### Power Supply 5.1V⎓3A
+
 power: 15.3W,
 voltage: 5.1V,
 current: 3A
