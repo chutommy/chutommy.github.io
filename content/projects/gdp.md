@@ -2,7 +2,7 @@
 title: "Analysis of GDP per capita at market prices"
 description: "The statistical analysis of GDP per capita at market prices across European countries"
 # date: "2024-06-11T13:08:38+01:00"
-weight: 60
+weight: 50
 
 hideMeta: false
 showPostNavLinks: false

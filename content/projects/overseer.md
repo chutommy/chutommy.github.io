@@ -2,7 +2,7 @@
 title: "Orwellian digital surveillance with robotics"
 description: "Project Overseer - The George Orwell's crusade"
 # date: "2019-04-11T16:22:02+02:00"
-weight: 50
+weight: 60
 
 hideMeta: false
 showPostNavLinks: false
