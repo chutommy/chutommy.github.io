@@ -10,8 +10,9 @@ hideMeta: true
 #### Machine Learning
 
 * [BI-ML: Personal Textbook](/resources/ml/textbook/ml-textbook.pdf)
-* [Countries by Life Expectancy (Regression)](/resources/ml/projects/life_expectancy.html)
-* [Titanic Survivors (Classifier)](/resources/ml/projects/titanic.html)
+* [Countries by Life Expectancy](/resources/ml/projects/life_expectancy.html)
+* [Titanic Survivors](/resources/ml/projects/titanic.html)
+* [Fashion MNIST](/resources/ml/projects/mnist.html)
 
 #### Probability and Statistics
 
