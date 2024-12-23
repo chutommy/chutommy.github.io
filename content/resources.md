@@ -13,6 +13,7 @@ hideMeta: true
 * [Countries by Life Expectancy](/resources/ml/projects/life_expectancy.html)
 * [Titanic Survivors](/resources/ml/projects/titanic.html)
 * [Fashion MNIST](/resources/ml/projects/mnist.html)
+* [DeepONet](/resources/ml/projects/deeponet.html)
 
 #### Probability and Statistics
 

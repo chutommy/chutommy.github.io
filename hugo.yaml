@@ -10,7 +10,6 @@ buildFuture: false
 buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
-paginate: 1000
 
 minify:
   disableXML: true
@@ -67,18 +66,6 @@ params:
     imageUrl: site/profile.png
     imageWidth: 260
     imageHeight: 260
-
-  socialIcons:
-    - name: linkedin
-      url: "https://www.linkedin.com/in/chutom"
-    - name: github
-      url: "https://github.com/chutommy"
-#    - name: orcid
-#      url: "https://orcid.org/0009-0008-3107-7680"
-#    - name: googlescholar
-#      url: "https://orcid.org/0009-0008-3107-7680"
-#    - name: cv
-#      url: ""
 
 menu:
   main:
