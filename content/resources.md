@@ -47,6 +47,32 @@ hideMeta: true
 * [Modular Arithmetic Cheatsheet](/resources/kab/kab-cheatsheet.pdf)
 * [Enumerated English Alphabet](/resources/kab/alphabet.png)
 
+#### Machine vision
+
+* [cheatsheet.html](/resources/svz/cheatsheet.html)
+* [2-camera-introduction.html](/resources/svz/2-camera-introduction.html)
+* [2-improutils-introduction.html](/resources/svz/2-improutils-introduction.html)
+* [3-camera-calibration.html](/resources/svz/3-camera-calibration.html)
+* [3-lens-defects.html](/resources/svz/3-lens-defects.html)
+* [4-library.html](/resources/svz/4-library.html)
+* [4-segmentation-and-measuring.html](/resources/svz/4-segmentation-and-measuring.html)
+* [4-segmentation-objects-count.html](/resources/svz/4-segmentation-objects-count.html)
+* [5-library.html](/resources/svz/5-library.html)
+* [5-mono_segmentation.html](/resources/svz/5-mono_segmentation.html)
+* [5-segmentation-fit-ocr.html](/resources/svz/5-segmentation-fit-ocr.html)
+* [6-height-estimator.html](/resources/svz/6-height-estimator.html)
+* [6-perspective-measuring-height.html](/resources/svz/6-perspective-measuring-height.html)
+* [6-perspective-measuring-length.html](/resources/svz/6-perspective-measuring-length.html)
+* [7-depth_camera.html](/resources/svz/7-depth_camera.html)
+* [8-linescan-qr-reader.html](/resources/svz/8-linescan-qr-reader.html)
+* [9-fourier-transform.html](/resources/svz/9-fourier-transform.html)
+* [10-perspective-cart-polar-system.html](/resources/svz/10-perspective-cart-polar-system.html)
+* [10-perspective-treads-measurement.html](/resources/svz/10-perspective-treads-measurement.html)
+* [11-face-detection.html](/resources/svz/11-face-detection.html)
+* [11-filters.html](/resources/svz/11-filters.html)
+* [12-face-detection-description.html](/resources/svz/12-face-detection-description.html)
+* [12-object-classification.html](/resources/svz/12-object-classification.html)
+
 #### Miscellaneous
 
 * [Normal Distribution](/resources/pst/norm.html)
